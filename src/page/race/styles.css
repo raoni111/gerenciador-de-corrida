@@ -3,7 +3,7 @@ body {
     background-color: #131F30;
 }
 .form-create-new-race-conteiner[display="false"] {
-    display: none;
+  display: none;
 }
 .form-create-new-race-conteiner {
     position: fixed;
@@ -53,20 +53,30 @@ body {
     background-color: #131F30;
 }
 .form-create-new-race-conteiner .form-create-new-race .button-save-new-rece-container  {
-    width: 100%;
-    margin-top: 2rem;
+  width: 100%;
+  margin-top: 2rem;
 }
 .form-create-new-race-conteiner .form-create-new-race .button-save-new-rece-container .button-save-new-rece {
-    cursor: pointer;
-    padding: 0.7rem 1rem;
-    color: #FFF;
-    background-color: #3C3EC1;
-    border-radius: 5px;
-    outline: none;
-    border: none;
+  cursor: pointer;  
+  padding: 0.7rem 1rem;
+  color: #FFF;
+  background-color: #3C3EC1;
+  border-radius: 5px;
+  border: none;
 }
 .main-content {
-    padding: 5rem 5rem;
+  padding: 5rem 5rem;
+}
+.main-content .back-button a {
+}
+.main-content .back-button a button { 
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #FFF;
+  background-color: #3C3EC1;
+  border: none;
 }
 .main-content .header {
     display: flex;
@@ -80,7 +90,7 @@ body {
 }
 
 .main-content .header .button-create-new-race-container .button-create-new-race {
-    cursor: pointer;
+    cursor: pointer;  
     padding: 1.2rem;
     color: #FFF;
     background-color: #3C3EC1;
@@ -96,7 +106,7 @@ body {
 }
 .races-section .grid-table .grid-table-header {
     display: grid;
-    grid-template-columns: 1.5fr 0.5fr 1.5fr 0.5fr;
+    grid-template-columns: repeat(6, 1fr);
     padding: 1rem;
     font-size: 1.5rem;
     color: #808488;
@@ -109,12 +119,11 @@ body {
     border-bottom: #213552 3px solid;
 }
 .races-section .grid-table .grid-table-body .grid-table-row {
-    cursor: pointer;
     display: grid;
     align-items: center;
     justify-content: center;
     padding: 0rem 1rem;
-    grid-template-columns: 1.5fr 0.5fr 1.5fr 0.5fr;
+    grid-template-columns: repeat(6, 1fr);
     height: 50px;
     margin-top: 1rem;
     font-size: 1.5rem;

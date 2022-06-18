@@ -9,22 +9,47 @@ class LocalStorageManager {
   addNewRace(_data) {
     races.push(_data);
 
+    this.writeFileRaces(races);
+
+    return races;
+  }
+
+  addNewParticipant(participant) {
+    races[participant.index].participants.push(participant.participant);
+
+    this.writeFileRaces(races);
+
+    return races[participant.index].participants;
+  }
+
+  writeFileRaces(races) {
     fs.writeFile(this.path, JSON.stringify(races), (error) => {
       if (error) {
         throw new Error(error);
       }
     });
-    return races;
   }
 
   delectRace(index) {
     races.splice(index, 1);
-    fs.writeFile(this.path, JSON.stringify(races), (error) => {
-      if (error) {
-        throw new Error(error);
-      }
-    });
+
+    this.writeFileRaces(races);
+
     return races;
+  }
+
+  deleteParticipant(indexInfomation) {
+    const { indexOfPage, index } = indexInfomation;
+    races[indexOfPage].participants.splice(index, 1);
+
+    this.writeFileRaces(races);
+
+    return races[indexOfPage].participants;
+  }
+
+  returnAllParticipants(index) {
+    const { participants } = races[index];
+    return participants;
   }
 
   static get returnRaces() {

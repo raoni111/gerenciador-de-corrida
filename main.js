@@ -43,14 +43,26 @@ app.on('window-all-closed', () => {
 });
 
 // ipcMain space
-ipcMain.handle('add-new-race', (event, data) => {
-  const races = localStorageManager.addNewRace(data);
-  return races;
-});
-
 ipcMain.handle('return-races', () => LocalStorageManager.returnRaces);
 
-ipcMain.handle('delect-race', (index) => {
+ipcMain.handle('add-new-race', (event, data) => {
+  const race = localStorageManager.addNewRace(data);
+  return race;
+});
+
+ipcMain.handle('delect-race', (event, index) => {
   const newRaces = localStorageManager.delectRace(index);
   return newRaces;
 });
+
+ipcMain.handle('delete-participant', (event, indexInfomation) => {
+  const addNewParticipants = localStorageManager.deleteParticipant(indexInfomation);
+  return addNewParticipants;
+});
+
+ipcMain.handle('add-new-participant', (event, participant) => {
+  const participants = localStorageManager.addNewParticipant(participant);
+  return participants;
+});
+
+ipcMain.handle('return-participant', (event, index) => localStorageManager.returnAllParticipants(index));

@@ -15,6 +15,9 @@ window.addEventListener('DOMContentLoaded', () => {
   contextBridge.exposeInMainWorld('electronAPI', {
     addNewRace: (data) => ipcRenderer.invoke('add-new-race', data),
     returnRaces: () => ipcRenderer.invoke('return-races'),
+    returnAllParticipant: (index) => ipcRenderer.invoke('return-participant', index),
     delectRace: (index) => ipcRenderer.invoke('delect-race', index),
+    deleteParticipant: (indexInformation) => ipcRenderer.invoke('delete-participant', indexInformation),
+    addNewParticipant: (participant) => ipcRenderer.invoke('add-new-participant', participant),
   });
 });

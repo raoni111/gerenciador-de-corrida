@@ -5,9 +5,10 @@
 // selectively enable features needed in the rendering
 // process.
 
-import FormContainerManager from './class/form-container-manger.js';
-import FormManager from './class/form-manager.js';
-import TableOfRaceManager from './class/table-of-race.manager.js';
+import FormContainerManager from '../../class/form-container-manger.js';
+import FormManager from '../../class/form-manager.js';
+import TableManager from '../../class/table-manager.js';
+import ElectronAPIManager from '../../class/electronAPI-manger.js';
 
 // import FormManager from './class/form-manager.js';
 
@@ -24,10 +25,16 @@ const tableOfRace = document.querySelector('#grid-table-body');
 // src\renderer.js
 
 const formContainerManager = new FormContainerManager(formContainer);
-const tableOfRaceManager = new TableOfRaceManager(tableOfRace);
-const formManager = new FormManager(form, tableOfRaceManager, formContainerManager);
+const tableOfRaceManager = new TableManager(tableOfRace, ElectronAPIManager);
+const formManager = new FormManager(
+  form,
+  tableOfRaceManager,
+  formContainerManager,
+  ElectronAPIManager,
+);
+
 // Events
-formManager.listenForm();
+formManager.listenForm('races');
 button_createNewRace.addEventListener('click', () => {
   formContainerManager.setAttribute('true');
 });
@@ -37,5 +44,5 @@ button_close.addEventListener('click', () => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  tableOfRaceManager.init();
+  tableOfRaceManager.initRaces();
 });

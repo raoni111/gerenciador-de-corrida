@@ -5,9 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../style/global-style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Race</h1>
+    <div class="form-create-new-race-conteiner" display="false">
+        <form action="/" class="form-create-new-race">
+            <div class="button-close-container">
+                <button class="button-close" type="button">
+                    <img class="img-close-svg" src="./img/close.png" alt="https://www.flaticon.com/free-icon/close_1828665?term=close&page=1&position=15&page=1&position=15&related_id=1828665&origin=tag">
+                </button>
+            </div>
+            <div class="input-conteiner">
+                <label>Nome do participante:</label><br/>
+                <input type="text">
+            </div>
+            <div class="input-conteiner">
+                <label>cidade natal:</label><br/>
+                <input type="text">
+            </div>
+            <div class="input-conteiner">
+                <label>stado:</label><br/>
+                <input type="text">
+            </div>
+            <div class="input-conteiner">
+              <label>categoria:</label><br/>
+              <input type="text">
+          </div>
+          <div class="input-conteiner">
+            <label>sexo:</label><br/>
+            <input type="text">
+        </div>
+            <div class="button-save-new-rece-container">
+                <button class="button-save-new-rece" type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+    <main class="main-content">
+        <div class="back-button">
+          <a href="../create-new-race/index.html">
+            <button>
+              voltar
+            </button>
+          </a>
+        </div>
+        <header class="header">
+            <h1 class="title-page">corridas</h1>
+            <div class="button-create-new-race-container">
+                <button class="button-create-new-race">Adicionar participante</button>
+            </div>
+        </header>
+        <section class="races-section">
+            <div class="grid-table">
+                <ul class="grid-table-header">
+                    <li>Nome do participante</li>
+                    <li>cidade natal</li>
+                    <li>estado</li>
+                    <li>categoria</li>
+                    <li>sexo</li>
+                </ul>
+                <ul class="grid-table-body" id="grid-table-body">
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="./renderer.js"></script>
 </body>
 </html>
