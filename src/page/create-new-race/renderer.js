@@ -34,7 +34,7 @@ const formManager = new FormManager(
 );
 
 // Events
-formManager.listenForm('races');
+formManager.listenForm('race');
 button_createNewRace.addEventListener('click', () => {
   formContainerManager.setAttribute('true');
 });
