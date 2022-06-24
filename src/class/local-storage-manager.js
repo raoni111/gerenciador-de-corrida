@@ -4,7 +4,7 @@ const path = require('path');
 const races = require('../local_storage/races.json');
 
 class LocalStorageManager {
-  path = path.join(__dirname, '..', '/local_storage', 'races.json');
+  pathRace = path.join(__dirname, '..', '/local_storage', 'races.json');
 
   addNewRace(_data) {
     races.push(_data);
@@ -22,8 +22,16 @@ class LocalStorageManager {
     return races[participant.index].participants;
   }
 
+  addNewCategory(category, index) {
+    races[index].categories.push(category);
+
+    this.writeFileRaces(races);
+
+    return races[index].categories;
+  }
+
   writeFileRaces(races) {
-    fs.writeFile(this.path, JSON.stringify(races), (error) => {
+    fs.writeFile(this.pathRace, JSON.stringify(races), (error) => {
       if (error) {
         throw new Error(error);
       }
@@ -36,6 +44,14 @@ class LocalStorageManager {
     this.writeFileRaces(races);
 
     return races;
+  }
+
+  deleteCategory(indexOfRace, indexOfCategory) {
+    races[indexOfRace].categories.splice(indexOfCategory, 1);
+
+    this.writeFileCategory(races);
+
+    return races[indexOfRace].categories;
   }
 
   deleteParticipant(indexInfomation) {
@@ -52,9 +68,12 @@ class LocalStorageManager {
     return participants;
   }
 
+  static returnAllCategories(index) {
+    return races[index].categories;
+  }
+
   static get returnRaces() {
-    if (races.length === 0) return [];
-    return races;
+    return races.length === 0 ? [] : races;
   }
 }
 

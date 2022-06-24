@@ -39,7 +39,7 @@ export default class TableManager {
       }
 
       if (tagName === 'UL' || tagName === 'LI') {
-        window.location = `../race/index.html?index=${index}`;
+        window.location = `../participants/index.html?index=${index}`;
       }
     });
   }

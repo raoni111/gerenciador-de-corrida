@@ -11,6 +11,8 @@ export default class RaceFactory {
       city: this.allInputs.item(1).value,
       date: this.allInputs.item(2).value,
       participants: [],
+      podio: [],
+      categories: [],
     };
     return this.race;
   }

@@ -1,9 +1,21 @@
 export default class FormContainerManager {
-  constructor(formContainerManager) {
-    this.formContainerManager = formContainerManager;
+  constructor(formContainer, buttonCreateNewRace, buttonClose) {
+    this.formContainer = formContainer;
+    this.buttonCreateNewRace = buttonCreateNewRace;
+    this.buttonClose = buttonClose;
   }
 
   setAttribute(boolean) {
-    this.formContainerManager.setAttribute('display', boolean);
+    this.formContainer.setAttribute('display', boolean);
+  }
+
+  listenButtonOpenClose() {
+    console.log(this.buttonCreateNewRace);
+    this.buttonCreateNewRace.addEventListener('click', () => {
+      this.setAttribute('true');
+    });
+    this.buttonClose.addEventListener('click', () => {
+      this.setAttribute('false');
+    });
   }
 }

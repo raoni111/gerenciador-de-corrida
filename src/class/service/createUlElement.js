@@ -15,6 +15,7 @@ export function createUlelementRace(race, index) {
 export function createUlelementPartipant(race, index) {
   const ul = `
     <ul class="grid-table-row" id="index-${index}">
+        <li id="index-${index}">${race.subscription}</li>
         <li id="index-${index}">${race.name}</li>
         <li id="index-${index}">${race.hometown}</li>
         <li id="index-${index}">${race.state}</li>

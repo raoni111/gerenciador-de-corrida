@@ -1,0 +1,328 @@
+/* styles.css */
+body {
+  background-color: #131F30;
+}
+.segundary-button-container  {
+  width: 100%;
+  margin-top: 2rem;
+}
+.segundary-button-container .segundary-button {
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  color: #FFF;
+  background-color: #3C3EC1;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+.blu-button-conteiner {
+  margin-top: 1rem;
+}
+.blu-button-conteiner .blu-button {
+  cursor: pointer;  
+  color: #FFF;
+  padding: 1.2rem;
+  margin-right: 1rem;
+  background-color: #3C3EC1;
+  border-radius: 5px;
+  border: none;
+} 
+.blu-button-conteiner .blu-button-form {
+  cursor: pointer;  
+  color: #FFF;
+  padding: 0.7rem 1rem;
+  background-color: #3C3EC1;
+  border-radius: 5px;
+  border: none;
+}
+.input-conteiner {
+  margin-top: 1rem;
+}
+.input-conteiner label {
+  font-size: 1.5rem;
+  color: #FFF;
+}
+.input-conteiner input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  color: #FFF;
+  background-color: #131F30;
+}
+.button-close-container {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.button-close {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.button-close .img-close-svg {
+  width: 15px;
+}
+.create-new-category-container[display="false"] {
+  display: none;
+}
+.create-new-category-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+.create-new-category-container .create-new-category-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: auto;
+  width: 550px;
+  min-height: 300px;
+  border-radius: 10px;
+  padding: 3rem 5rem;
+  color: rgb(255, 255, 255);
+  background-color: #203552;
+}
+.create-new-category-container .create-new-category-content .all-categories-created {
+  width: 100%;
+  min-height: 100%;
+  padding-right: 1rem;
+  margin-right: 4rem;
+  border-right: 2px solid #131f302f;
+}
+.create-new-category-container .create-new-category-content .all-categories-created .header-of-all-category {
+  width: 100%;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.category-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+.category-content:hover {
+  background-color: #131F30;
+}
+.category-content span {
+  font-size: 1.5rem;
+  color: #A2A7AD;
+}
+.category-content .button-delete-category-contaner .button-delete-category {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+.category-content .button-delete-category-contaner .button-delete-category .img-close-svg {
+  width: 13px;
+}
+.form-create-new-race-conteiner[display="false"] {
+  display: none;
+}
+.form-create-new-race-conteiner {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.form-create-new-race-conteiner .button-close-container {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.form-create-new-race-conteiner .button-close-container .button-close {
+    border: none;
+    background-color: transparent;
+}
+.form-create-new-race-conteiner .button-close-container .button-close .img-close-svg {
+    width: 15px;
+}
+.form-create-new-race-conteiner .form-create-new-race {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    padding: 3rem 5rem;
+    background-color: #203552;
+}
+.form-create-new-race-conteiner .form-create-new-race .inputs-grup {
+  position: relative;
+  left: 157px;
+  display: flex;
+  flex-direction: row;
+  transition: left 0.5s ease-in-out;
+}
+.form-create-new-race-conteiner .form-create-new-race .inputs-grup[next-grup="true"] {
+  left: -150px;
+}
+.form-create-new-race-conteiner .form-create-new-race .inputs-grup .inputs-grup-one {
+  position: relative;
+  margin-right: 10rem;
+}
+.form-create-new-race-conteiner .form-create-new-race .inputs-grup .inputs-grup-two .button-grup {
+  display: flex;
+  justify-content: space-between;
+}
+.form-create-new-race-conteiner .form-create-new-race .inputs-grup .inputs-grup-two .button-grup .button-save-new-rece-container {
+  display: flex;
+  justify-content: end;
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner {
+    position: relative;
+    margin-top: 1rem;
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner ul[display="false"] {
+  overflow: hidden;
+  height: 0px;
+  background-color: transparent;
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner ul {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100px;
+  margin-top: 0.2rem;
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  list-style: none;
+  background-color: #131F30;
+  color: #fff;
+  z-index: 2;
+  transition: all 0.2s ease-in-out;
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner ul::-webkit-scrollbar {
+  width: 5px;
+  padding-right: 0.5rem;
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner ul::-webkit-scrollbar-thumb {
+  background-color: #3C3EC1;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner ul li {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner ul li:hover {
+  background-color: #213552;
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner label {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+.form-create-new-race-conteiner .form-create-new-race .input-conteiner input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    color: #FFF;
+    background-color: #131F30;
+}
+.main-content {
+  padding: 5rem 5rem;
+}
+.main-content .back-button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.main-content .back-button-container a {
+}
+.main-content .back-button-container a button { 
+  cursor: pointer;
+  padding: 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #FFF;
+  background-color: #3C3EC1;
+  border: none;
+}
+.main-content .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0rem;
+}
+.main-content .header .title-page {
+    padding: 1rem;
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+}
+
+.races-section {}
+
+.races-section .grid-table {
+    width: 100%;
+}
+.races-section .grid-table .grid-table-header {
+    display: grid;
+    grid-template-columns: 0.8fr repeat(6, 1fr);
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: #808488;
+    list-style: none;
+    border-bottom: #213552 3px solid;
+}
+.races-section .grid-table .grid-table-body {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    border-bottom: #213552 3px solid;
+}
+.races-section .grid-table .grid-table-body .grid-table-row {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 1rem;
+    grid-template-columns: 0.8fr repeat(6, 1fr);
+    height: 50px;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #A2A7AD;
+    list-style: none;
+    transition: background 0.1s ease-in-out;
+}
+.races-section .grid-table .grid-table-body .grid-table-row:hover {
+    border-radius: 5px;
+    background-color: #213552;
+}
+.races-section .grid-table .grid-table-body .grid-table-row  li {
+}
+.races-section .grid-table .grid-table-body .grid-table-row li .delect-button {
+    cursor: pointer;
+    background-color: transparent;
+    padding: 1rem 3rem;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 2px solid #E24543;
+    transition: background 0.1s ease-in-out;
+
+}
+.races-section .grid-table .grid-table-body .grid-table-row  li .delect-button:hover {
+    background-color: #E24543;
+}
+.races-section .add-new-race h3 {
+    color: #3C3EC1;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+
+}

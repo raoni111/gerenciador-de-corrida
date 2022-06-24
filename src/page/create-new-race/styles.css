@@ -2,6 +2,47 @@
 body {
     background-color: #131F30;
 }
+
+.input-conteiner {
+  margin-top: 1rem;
+}
+.input-conteiner label {
+  font-size: 1.5rem;
+  color: #FFF;
+}
+.input-conteiner input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  color: #FFF;
+  background-color: #131F30;
+}
+.button-close-container {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.button-close {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.button-close .img-close-svg {
+    width: 15px;
+}
+.primary-button-blue {
+  cursor: pointer;
+    padding: 1.2rem;
+    margin-right: 1rem;
+    color: #FFF;
+    background-color: #3C3EC1;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
 .form-create-new-race-conteiner[display="false"] {
     display: none;
 }
@@ -13,19 +54,6 @@ body {
     width: 100%;
     height: 100%;
 }
-.form-create-new-race-conteiner .button-close-container {
-    display: flex;
-    justify-content: end;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-.form-create-new-race-conteiner .button-close-container .button-close {
-    border: none;
-    background-color: transparent;
-}
-.form-create-new-race-conteiner .button-close-container .button-close .img-close-svg {
-    width: 15px;
-}
 .form-create-new-race-conteiner .form-create-new-race {
     display: flex;
     flex-direction: column;
@@ -36,27 +64,11 @@ body {
     padding: 3rem 5rem;
     background-color: #203552;
 }
-.form-create-new-race-conteiner .form-create-new-race .input-conteiner {
-    margin-top: 1rem;
-}
-.form-create-new-race-conteiner .form-create-new-race .input-conteiner label {
-    font-size: 1.5rem;
-    color: #FFF;
-}
-.form-create-new-race-conteiner .form-create-new-race .input-conteiner input {
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    margin-top: 1rem;
-    color: #FFF;
-    background-color: #131F30;
-}
-.form-create-new-race-conteiner .form-create-new-race .button-save-new-rece-container  {
+.segundary-button-container  {
     width: 100%;
     margin-top: 2rem;
 }
-.form-create-new-race-conteiner .form-create-new-race .button-save-new-rece-container .button-save-new-rece {
+.segundary-button-container .segundary-button {
     cursor: pointer;
     padding: 0.7rem 1rem;
     color: #FFF;
@@ -64,6 +76,10 @@ body {
     border-radius: 5px;
     outline: none;
     border: none;
+}
+.button-add-category-conainer {
+  display: flex;
+  justify-content: end;
 }
 .main-content {
     padding: 5rem 5rem;
@@ -75,21 +91,9 @@ body {
 }
 .main-content .header .title-page {
     padding: 1rem;
-    color: rgb(255, 255, 255);
+    color: #fff;
     font-size: 2.5rem;
 }
-
-.main-content .header .button-create-new-race-container .button-create-new-race {
-    cursor: pointer;
-    padding: 1.2rem;
-    color: #FFF;
-    background-color: #3C3EC1;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-}
-
-.races-section {}
 
 .races-section .grid-table {
     width: 100%;

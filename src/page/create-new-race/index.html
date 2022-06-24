@@ -14,7 +14,7 @@
         <div class="form-create-new-race-conteiner" display="false">
             <form action="/" class="form-create-new-race">
                 <div class="button-close-container">
-                    <button class="button-close" type="button">
+                    <button class="button-close" id="button-close-create-race" type="button">
                         <img class="img-close-svg" src="./img/close.png" alt="https://www.flaticon.com/free-icon/close_1828665?term=close&page=1&position=15&page=1&position=15&related_id=1828665&origin=tag">
                     </button>
                 </div>
@@ -30,8 +30,8 @@
                     <label>Data:</label><br/>
                     <input type="text">
                 </div>
-                <div class="button-save-new-rece-container">
-                    <button class="button-save-new-rece" type="submit">Salvar</button>
+                <div class="button-save-new-rece-container segundary-button-container">
+                    <button class="button-save-new-rece segundary-button" type="submit">Salvar</button>
                 </div>
             </form>
         </div>
@@ -39,7 +39,7 @@
             <header class="header">
                 <h1 class="title-page">corridas</h1>
                 <div class="button-create-new-race-container">
-                    <button class="button-create-new-race">Criar nova corrida</button>
+                    <button class="button-create-new-race primary-button-blue">Criar nova corrida</button>
                 </div>
             </header>
             <section class="races-section">
@@ -49,8 +49,8 @@
                         <li>Local</li>
                         <li>Data</li>
                     </ul>
-                    <ul class="grid-table-body" id="grid-table-body">
-                    </ul>
+                    <div class="grid-table-body" id="grid-table-body">
+                    </div>
                 </div>
             </section>
         </main>

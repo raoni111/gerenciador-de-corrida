@@ -9,6 +9,33 @@
     <title></title>
 </head>
 <body>
+  <div class="create-new-category-container" display="false">
+          <div class="create-new-category-content">
+            <div class="all-categories-created">
+              <div class="header-of-all-category">
+                <h1>Categorias</h1>
+              </div>
+              <div clas="categories-container" id="table-of-category">
+              </div>
+            </div>
+            <div class="form-create-new-category-conteiner">
+              <div class="button-close-container">
+                <button class="button-close" id="button-close-create-category" type="button">
+                    <img class="img-close-svg" src="./img/close.png" alt="https://www.flaticon.com/free-icon/close_1828665?term=close&page=1&position=15&page=1&position=15&related_id=1828665&origin=tag">
+                </button>
+              </div>
+              <form action="POST" id="form-create-category">
+                <div class="input-conteiner">
+                  <label for="category-name">Nome da categoria</label><br/>
+                  <input type="text" name="" id="category-name">
+                </div>
+                <div class="button-add-category-conainer  segundary-button-container">
+                  <button class="button-add-category segundary-button" type="submit">Adicionar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
     <div class="form-create-new-race-conteiner" display="false">
         <form action="/" class="form-create-new-race">
             <div class="button-close-container">
@@ -16,56 +43,95 @@
                     <img class="img-close-svg" src="./img/close.png" alt="https://www.flaticon.com/free-icon/close_1828665?term=close&page=1&position=15&page=1&position=15&related_id=1828665&origin=tag">
                 </button>
             </div>
-            <div class="input-conteiner">
-                <label>Nome do participante:</label><br/>
-                <input type="text">
+            <div class="inputs-grup" next-grup="false">
+              <div class="inputs-grup-one">
+                <div class="input-conteiner">
+                    <label>Nome do participante:</label><br/>
+                    <input type="text">
+                </div>
+                <div class="input-conteiner">
+                  <label>Apelido:</label><br/>
+                  <input type="text">
+                </div>
+                <div class="input-conteiner">
+                  <label>Incrição:</label><br/>
+                  <input type="text">
+                </div>
+                <div class="input-conteiner">
+                    <label>Cidade natal:</label><br/>
+                    <input type="text">
+                </div>
+                <div class="input-conteiner">
+                    <label>Estado:</label><br/>
+                    <input type="text">
+                </div>
+                <div class="input-conteiner">
+                  <label>Categoria:</label><br/>
+                  <input type="text">
+                </div>
+                <div class="button-next-grup blu-button-conteiner">
+                  <button class="button-next-grup blu-button-form" type="button">Proximo</button>
+                </div>
+              </div>
+              <div class="inputs-grup-two">
+                <div class="input-conteiner">
+                  <label>Sexo:</label><br/>
+                  <input type="text">
+                </div>
+                <div class="input-conteiner">
+                  <label>Data de nacimento:</label><br/>
+                  <input type="text">
+                </div>
+                <div class="input-conteiner">
+                  <label>Telefone:</label><br/>
+                  <input type="text">
+                </div>
+                <div class="input-conteiner">
+                  <label>Email:</label><br/>
+                  <input type="text">
+                </div>
+                <div class="input-conteiner">
+                  <label>Patrocinador:</label><br/>
+                  <input type="text">
+                </div>
+                <div class="button-grup">
+                  <div class="button-back-grup blu-button-conteiner">
+                    <button class="button-back-grup blu-button-form" type="button">Voltar</button>
+                  </div>
+                  <div class="button-save-new-rece-container blu-button-conteiner">
+                      <button class="button-save-new-rece blu-button-form" type="submit">Registrar</button>
+                  </div>
+                </div>
             </div>
-            <div class="input-conteiner">
-                <label>Cidade natal:</label><br/>
-                <input type="text">
-            </div>
-            <div class="input-conteiner">
-                <label>Estado:</label><br/>
-                <input type="text">
-            </div>
-            <div class="input-conteiner">
-              <label>Categoria:</label><br/>
-              <input type="text">
-          </div>
-          <div class="input-conteiner">
-            <label>Sexo:</label><br/>
-            <input type="text">
-        </div>
-            <div class="button-save-new-rece-container">
-                <button class="button-save-new-rece" type="submit">Registrar</button>
             </div>
         </form>
     </div>
     <main class="main-content">
-        <div class="back-button">
-          <a href="../create-new-race/index.html">
+        <div class="back-button-container">
+          <a href="../create-new-race/index.html" >
             <button>
               voltar
             </button>
           </a>
+          <div class="button-create-new-race-container blu-button-conteiner">
+              <button class="button-create-new-race blu-button">Adicionar participante</button>
+          </div>
         </div>
         <header class="header">
             <h1 class="title-page"></h1>
-            <div class="button-create-new-race-container">
-                <button class="button-create-new-race">Adicionar participante</button>
-            </div>
         </header>
         <section class="races-section">
             <div class="grid-table">
                 <ul class="grid-table-header">
+                    <li>Inscrição</li>
                     <li>Nome do participante</li>
                     <li>Cidade natal</li>
                     <li>Estado</li>
                     <li>Categoria</li>
                     <li>Sexo</li>
                 </ul>
-                <ul class="grid-table-body" id="grid-table-body">
-                </ul>
+                <div class="grid-table-body" id="grid-table-body">
+                </div>
             </div>
         </section>
     </main>

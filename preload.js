@@ -18,6 +18,9 @@ window.addEventListener('DOMContentLoaded', () => {
     returnAllParticipant: (index) => ipcRenderer.invoke('return-participant', index),
     delectRace: (index) => ipcRenderer.invoke('delect-race', index),
     deleteParticipant: (indexInformation) => ipcRenderer.invoke('delete-participant', indexInformation),
+    deleteCategory: (indexObj) => ipcRenderer.invoke('delete-category', indexObj),
     addNewParticipant: (participant) => ipcRenderer.invoke('add-new-participant', participant),
+    addNewCategory: (categoryObj) => ipcRenderer.invoke('add-new-category', categoryObj),
+    returnAllCategory: (index) => ipcRenderer.invoke('return-all-category', index),
   });
 });

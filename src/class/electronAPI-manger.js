@@ -32,4 +32,28 @@ export default class ElectronAPIManager {
     });
     return letParticipants;
   }
+
+  static async addNewCategory(category) {
+    let letCategories;
+    await window.electronAPI.addNewCategory(category).then((categories) => {
+      letCategories = categories;
+    });
+    return letCategories;
+  }
+
+  static async deleteCategory(indexObj) {
+    let letCategories;
+    await window.electronAPI.deleteCategory(indexObj).then((categories) => {
+      letCategories = categories;
+    });
+    return letCategories;
+  }
+
+  static async returnAllCategory(index) {
+    let letCategories;
+    await window.electronAPI.returnAllCategory(index).then((categories) => {
+      letCategories = categories;
+    });
+    return letCategories;
+  }
 }

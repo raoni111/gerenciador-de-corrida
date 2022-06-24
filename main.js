@@ -65,4 +65,19 @@ ipcMain.handle('add-new-participant', (event, participant) => {
   return participants;
 });
 
+ipcMain.handle('add-new-category', (event, categoryObj) => {
+  const categories = localStorageManager.addNewCategory(categoryObj.category, categoryObj.index);
+  return categories;
+});
+
+ipcMain.handle('return-all-category', (event, index) => LocalStorageManager.returnAllCategories(index));
+
 ipcMain.handle('return-participant', (event, index) => localStorageManager.returnAllParticipants(index));
+
+ipcMain.handle('delete-category', (event, indexObj) => {
+  const newCategories = localStorageManager.deleteCategory(
+    indexObj.indexOfRace,
+    indexObj.indexOfCategory,
+  );
+  return newCategories;
+});

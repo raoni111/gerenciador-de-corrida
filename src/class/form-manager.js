@@ -7,11 +7,18 @@ export default class FormManager {
 
   partipant = {};
 
-  constructor(form, tableOfRaceManager, formContainerManager, ElectronAPIManager) {
+  constructor(
+    form,
+    tableOfRaceManager,
+    formContainerManager,
+    ElectronAPIManager,
+    inputsGrups = null,
+  ) {
     this.form = form;
     this.tableOfRaceManager = tableOfRaceManager;
     this.formContainerManager = formContainerManager;
     this.ElectronAPIManager = ElectronAPIManager;
+    this.inputsGrups = inputsGrups;
   }
 
   listenForm(page) {
@@ -22,14 +29,19 @@ export default class FormManager {
       if (page === 'race') {
         this.useCreateNewRace(allInput);
         clearInputs(allInput);
-        this.formContainerManager.setAttribute('false');
+        this.setAllAtributes();
         return;
       }
 
       this.useCreateNewParticipant(allInput);
       clearInputs(allInput);
-      this.formContainerManager.setAttribute('false');
+      this.setAllAtributes();
     });
+  }
+
+  setAllAtributes() {
+    this.formContainerManager.setAttribute('false');
+    if (this.inputsGrups) this.inputsGrups.setAttribute('next-grup', 'false');
   }
 
   useCreateNewRace(allInput) {
