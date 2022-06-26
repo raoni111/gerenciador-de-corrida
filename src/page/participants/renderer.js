@@ -30,6 +30,7 @@ const tableOfCategory = document.querySelector('#table-of-category');
 
 const grupOfCategory = document.querySelector('#grup-of-category-before-input');
 const inputOfCategory = document.querySelector('#input-of-category');
+const buttonInitRace = document.querySelector('.button-init-race');
 
 const inputsGrupsManger = new InputsGrupsManger(backButton, nexButton, inputsGrups);
 const formContainerManager = new FormContainerManager(formContainer);
@@ -84,4 +85,8 @@ buttonCreateNewRace.addEventListener('click', () => {
 
 buttonClose.addEventListener('click', () => {
   formContainerManager.setAttribute('false');
+});
+
+buttonInitRace.addEventListener('click', () => {
+  window.location = `../race/index.html?index=${index}`;
 });

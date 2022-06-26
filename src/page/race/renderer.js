@@ -1,46 +1,53 @@
 import HTMLManager from '../../class/html-manger.js';
 import ElectronAPIManager from '../../class/electronAPI-manger.js';
-import FormContainerManager from '../../class/form-container-manger.js';
-import FormManager from '../../class/form-manager.js';
-import TableManager from '../../class/table-manager.js';
-import InputsGrupsManger from '../../class/inputs-grups-manger.js';
+import Timer from '../../class/timer.js';
+import FormAddAtThePodioManager from '../../class/form-add-at-the-podio-manager.js';
+import TablePodioManger from '../../class/table-podio-manager.js';
 
-const formContainer = document.querySelector('.form-create-new-race-conteiner');
+const { href } = window.location;
+const index = Number(href.slice(href.length - 1, href.length));
 
-const buttonCreateNewRace = document.querySelector('.button-create-new-race');
-const buttonClose = document.querySelector('.button-close');
-const inputsGrups = document.querySelector('.inputs-grup');
-const nexButton = document.querySelector('.button-next-grup');
-const backButton = document.querySelector('.button-back-grup');
-const tableOfRace = document.querySelector('#grid-table-body');
-const form = document.querySelector('.form-create-new-race');
+const buttonBack = document.querySelector('#back-button-race-podio');
 
-const inputsGrupsManger = new InputsGrupsManger(backButton, nexButton, inputsGrups);
-const formContainerManager = new FormContainerManager(formContainer);
-const tableOfParticipantManager = new TableManager(tableOfRace, ElectronAPIManager);
-const htmlManger = new HTMLManager(ElectronAPIManager);
-const formManager = new FormManager(
-  form,
-  tableOfParticipantManager,
-  formContainerManager,
-  ElectronAPIManager,
-  inputsGrups,
+const tablePodio = document.querySelector('#grid-table-body');
+const timeContent = document.querySelector('.time-content');
+const buttonInitRace = document.querySelector('#button-init-race');
+const buttonPlayTimer = document.querySelector('#button-play-timer');
+const buttonStopTimer = document.querySelector('#button-pause-time');
+const buttonRestartTimer = document.querySelector('#button-restart-timer');
+
+const formContent = document.querySelector('#form-add-at-the-podio-container');
+
+const timer = new Timer(
+  timeContent,
+  buttonInitRace,
+  buttonPlayTimer,
+  buttonStopTimer,
+  buttonRestartTimer,
 );
 
-inputsGrupsManger.listenButtons();
-formManager.listenForm('race-partipants');
+const tablePodioManger = new TablePodioManger(tablePodio, ElectronAPIManager);
+
+const formaddAtThePodioManager = new FormAddAtThePodioManager(
+  formContent,
+  timer,
+  tablePodioManger,
+  ElectronAPIManager,
+  index,
+);
+
+formaddAtThePodioManager.litenerEvets();
+timer.initTimer();
+
+const htmlManger = new HTMLManager(ElectronAPIManager);
+
+buttonBack.addEventListener('click', () => {
+  window.location = `../participants/index.html?index=${index}`;
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   const { href } = window.location;
   const index = Number(href.slice(href.length - 1, href.length));
-  htmlManger.renderInformation(index);
-  tableOfParticipantManager.initParticipant(index);
-});
-
-buttonCreateNewRace.addEventListener('click', () => {
-  formContainerManager.setAttribute('true');
-});
-
-buttonClose.addEventListener('click', () => {
-  formContainerManager.setAttribute('false');
+  htmlManger.renderInformation(index, 'PODIO: ');
+  tablePodioManger.initTablePodioManager(index);
 });

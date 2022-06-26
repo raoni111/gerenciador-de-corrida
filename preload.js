@@ -22,5 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
     addNewParticipant: (participant) => ipcRenderer.invoke('add-new-participant', participant),
     addNewCategory: (categoryObj) => ipcRenderer.invoke('add-new-category', categoryObj),
     returnAllCategory: (index) => ipcRenderer.invoke('return-all-category', index),
+    addNewParticipantAtThePodio: (participantInformation) => ipcRenderer.invoke('add-new-participant-at-the-podio', participantInformation),
+    returnPodio: (indexRace) => ipcRenderer.invoke('return-podio', indexRace),
   });
 });

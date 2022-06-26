@@ -18,6 +18,7 @@ export default class ParticipantFactory {
       tell: this.allInput.item(8).value,
       email: this.allInput.item(9).value,
       sponsor: this.allInput.item(10).value,
+      time: '',
     };
     return this.participant;
   }

@@ -56,4 +56,24 @@ export default class ElectronAPIManager {
     });
     return letCategories;
   }
+
+  static async addNewParticipantAtThePodio(raceIndex, participantSubscription, time) {
+    let letPodio;
+    await window.electronAPI.addNewParticipantAtThePodio({
+      raceIndex,
+      participantSubscription,
+      time,
+    }).then((podio) => {
+      letPodio = podio;
+    });
+    return letPodio;
+  }
+
+  static async returnPodio(indexRace) {
+    let letPodio;
+    await window.electronAPI.returnPodio(indexRace).then((podio) => {
+      letPodio = podio;
+    });
+    return letPodio;
+  }
 }

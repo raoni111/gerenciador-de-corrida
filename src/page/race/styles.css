@@ -2,6 +2,39 @@
 body {
   background-color: #131F30;
 }
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.timer-container .button-time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.timer-container .button-time-container button {
+  cursor: pointer;
+  margin-right: 2rem;
+}
+.timer-container .button-time-container button[display="false"] {
+  display: none;
+}
+.timer-container .button-time-container button:nth-child(1)[display="true"], button:nth-child(4)[display="true"] {
+  margin-right: 0px;
+}
+.timer-container .button-time-container .timer-button {
+  background-color: transparent;
+  border: none;
+}
+.timer-container .button-time-container .timer-button img {
+  width: 25px;
+}
+.timer-container .time-content {
+  font-size: 3rem;
+  color: #fff;
+}
 .blu-button-conteiner {
   margin-top: 1rem;
 }
@@ -20,81 +53,6 @@ body {
   background-color: #3C3EC1;
   border-radius: 5px;
   border: none;
-}
-.form-create-new-race-conteiner[display="false"] {
-  display: none;
-}
-.form-create-new-race-conteiner {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-.form-create-new-race-conteiner .button-close-container {
-    display: flex;
-    justify-content: end;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-.form-create-new-race-conteiner .button-close-container .button-close {
-    border: none;
-    background-color: transparent;
-}
-.form-create-new-race-conteiner .button-close-container .button-close .img-close-svg {
-    width: 15px;
-}
-.form-create-new-race-conteiner .form-create-new-race {
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 350px;
-    height: auto;
-    border-radius: 10px;
-    padding: 3rem 5rem;
-    background-color: #203552;
-}
-.form-create-new-race-conteiner .form-create-new-race .inputs-grup {
-  position: relative;
-  left: 157px;
-  display: flex;
-  flex-direction: row;
-  transition: left 0.5s ease-in-out;
-}
-.form-create-new-race-conteiner .form-create-new-race .inputs-grup[next-grup="true"] {
-  left: -150px;
-}
-.form-create-new-race-conteiner .form-create-new-race .inputs-grup .inputs-grup-one {
-  position: relative;
-  margin-right: 10rem;
-}
-.form-create-new-race-conteiner .form-create-new-race .inputs-grup .inputs-grup-two .button-grup {
-  display: flex;
-  justify-content: space-between;
-}
-.form-create-new-race-conteiner .form-create-new-race .inputs-grup .inputs-grup-two .button-grup .button-save-new-rece-container {
-  display: flex;
-  justify-content: end;
-}
-.form-create-new-race-conteiner .form-create-new-race .input-conteiner {
-    margin-top: 1rem;
-}
-.form-create-new-race-conteiner .form-create-new-race .input-conteiner label {
-    font-size: 1.5rem;
-    color: #FFF;
-}
-.form-create-new-race-conteiner .form-create-new-race .input-conteiner input {
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    margin-top: 1rem;
-    color: #FFF;
-    background-color: #131F30;
 }
 .main-content {
   padding: 5rem 5rem;
@@ -125,15 +83,39 @@ body {
     color: rgb(255, 255, 255);
     font-size: 2.5rem;
 }
-
-.races-section {}
-
+.races-section .form-add-at-the-podio-container {
+  margin-bottom: 2rem;
+}
+.races-section .form-add-at-the-podio-container .input-add-at-the-podio-conteiner {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.races-section .form-add-at-the-podio-container .input-add-at-the-podio-conteiner .button-add-at-the-podio-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 3rem;
+}
+.races-section .form-add-at-the-podio-container .input-add-at-the-podio-conteiner .input-content {
+  font-size: 1.6rem;
+  color: #fff;
+}
+.races-section .form-add-at-the-podio-container .input-add-at-the-podio-conteiner .input-content input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 1.5rem 2rem 0em 0rem;
+  color: #FFF;
+  background-color: #213552;
+ }
 .races-section .grid-table {
     width: 100%;
 }
 .races-section .grid-table .grid-table-header {
     display: grid;
-    grid-template-columns: 0.8fr repeat(6, 1fr);
+    grid-template-columns: 0.5fr 0.5fr 1.2fr repeat(5, 1fr);
     padding: 1rem;
     font-size: 1.5rem;
     color: #808488;
@@ -150,7 +132,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0rem 1rem;
-    grid-template-columns: 0.8fr repeat(6, 1fr);
+    grid-template-columns: 0.5fr 0.5fr 1.2fr repeat(5, 1fr);
     height: 50px;
     margin-top: 1rem;
     font-size: 1.5rem;

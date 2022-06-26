@@ -3,19 +3,19 @@ export default class HTMLManager {
     this.ElectronAPIManager = ElectronAPIManager;
   }
 
-  renderInformation(index) {
+  renderInformation(index, before = '') {
     this.ElectronAPIManager.returnAllRaces().then((races) => {
-      this.setTitleOfTable(races[index]);
-      this.setTitleOfPage(races[index]);
+      this.setTitleOfTable(races[index], before);
+      this.setTitleOfPage(races[index], before);
     });
   }
 
-  setTitleOfTable(race) {
+  setTitleOfTable(race, before) {
     const titleOfPage = document.querySelector('.title-page');
-    titleOfPage.textContent = race.name;
+    titleOfPage.textContent += `${before} ${race.name}`;
   }
 
-  setTitleOfPage(race) {
-    document.title = race.name;
+  setTitleOfPage(race, before) {
+    document.title = `${before} ${race.name}`;
   }
 }

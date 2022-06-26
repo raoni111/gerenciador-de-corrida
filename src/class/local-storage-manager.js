@@ -30,6 +30,40 @@ class LocalStorageManager {
     return races[index].categories;
   }
 
+  addNewParticipantToPodio(raceIndex, participantSubscription, time) {
+    const participant = this.returnEspecificParticipant(raceIndex, participantSubscription);
+
+    if (!participant) return null;
+
+    participant.time = time;
+
+    if (this.participantOnPodio(races[raceIndex].podio, participantSubscription)) return null;
+
+    races[raceIndex].podio.push(participant);
+    this.writeFileRaces(races);
+    return races[raceIndex].podio;
+  }
+
+  participantOnPodio(podio, participantSubscription) {
+    let letParticipantOnPodio = false;
+    podio.forEach((participant) => {
+      if (participant.subscription === participantSubscription) {
+        letParticipantOnPodio = true;
+      }
+    });
+    return letParticipantOnPodio;
+  }
+
+  returnEspecificParticipant(raceIndex, participantSubscription) {
+    let letParticipant = null;
+    races[raceIndex].participants.forEach((participant) => {
+      if (participant.subscription === participantSubscription) {
+        letParticipant = participant;
+      }
+    });
+    return letParticipant;
+  }
+
   writeFileRaces(races) {
     fs.writeFile(this.pathRace, JSON.stringify(races), (error) => {
       if (error) {
@@ -70,6 +104,10 @@ class LocalStorageManager {
 
   static returnAllCategories(index) {
     return races[index].categories;
+  }
+
+  static returnPodio(indexRace) {
+    return races[indexRace].podio;
   }
 
   static get returnRaces() {

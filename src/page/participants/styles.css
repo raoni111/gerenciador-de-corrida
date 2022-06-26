@@ -214,8 +214,8 @@ body {
   padding-right: 0.5rem;
 }
 .form-create-new-race-conteiner .form-create-new-race .input-conteiner ul::-webkit-scrollbar-thumb {
-  background-color: #3C3EC1;    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
+  background-color: #3C3EC1;
+  border-radius: 20px;
 }
 .form-create-new-race-conteiner .form-create-new-race .input-conteiner ul li {
   margin-top: 1rem;

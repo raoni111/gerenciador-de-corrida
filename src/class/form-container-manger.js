@@ -10,7 +10,6 @@ export default class FormContainerManager {
   }
 
   listenButtonOpenClose() {
-    console.log(this.buttonCreateNewRace);
     this.buttonCreateNewRace.addEventListener('click', () => {
       this.setAttribute('true');
     });

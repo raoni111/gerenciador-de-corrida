@@ -1,59 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            http-equiv="Content-Security-Policy"
-            content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
-        />
-        <link href="../../style/global-style.css" rel="stylesheet" />
-        <link href="./styles.css" rel="stylesheet" />
-        <title>gestor de corridas - corridas</title>
-    </head>
-    <body>
-        <div class="form-create-new-race-conteiner" display="false">
-            <form action="/" class="form-create-new-race">
-                <div class="button-close-container">
-                    <button class="button-close" id="button-close-create-race" type="button">
-                        <img class="img-close-svg" src="./img/close.png" alt="https://www.flaticon.com/free-icon/close_1828665?term=close&page=1&position=15&page=1&position=15&related_id=1828665&origin=tag">
-                    </button>
-                </div>
-                <div class="input-conteiner">
-                    <label>Nome da corrida:</label><br/>
-                    <input type="text">
-                </div>
-                <div class="input-conteiner">
-                    <label>Local:</label><br/>
-                    <input type="text">
-                </div>
-                <div class="input-conteiner">
-                    <label>Data:</label><br/>
-                    <input type="text">
-                </div>
-                <div class="button-save-new-rece-container segundary-button-container">
-                    <button class="button-save-new-rece segundary-button" type="submit">Salvar</button>
-                </div>
-            </form>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <link href="../../style/global-style.css" rel="stylesheet" />
+  <link href="./styles.css" rel="stylesheet" />
+  <title>gestor de corridas - corridas</title>
+</head>
+
+<body>
+  <div class="form-create-new-race-conteiner" display="false">
+    <form action="/" class="form-create-new-race">
+      <div class="button-close-container">
+        <button class="button-close" id="button-close-create-race" type="button">
+          <img class="img-close-svg" src="./img/close.png"
+            alt="https://www.flaticon.com/free-icon/close_1828665?term=close&page=1&position=15&page=1&position=15&related_id=1828665&origin=tag">
+        </button>
+      </div>
+      <div class="input-conteiner">
+        <label>Nome da corrida:</label><br />
+        <input type="text">
+      </div>
+      <div class="input-conteiner">
+        <label>Local:</label><br />
+        <input type="text">
+      </div>
+      <div class="input-conteiner">
+        <label>Data:</label><br />
+        <input type="text">
+      </div>
+      <div class="button-save-new-rece-container segundary-button-container">
+        <button class="button-save-new-rece segundary-button" type="submit">Salvar</button>
+      </div>
+    </form>
+  </div>
+  <main class="main-content">
+    <header class="header">
+      <h1 class="title-page">corridas</h1>
+      <div class="button-create-new-race-container">
+        <button class="button-create-new-race primary-button-blue">Criar nova corrida</button>
+      </div>
+    </header>
+    <section class="races-section">
+      <div class="grid-table">
+        <ul class="grid-table-header">
+          <li>Nome da corrida</li>
+          <li>Local</li>
+          <li>Data</li>
+        </ul>
+        <div class="grid-table-body" id="grid-table-body">
         </div>
-        <main class="main-content">
-            <header class="header">
-                <h1 class="title-page">corridas</h1>
-                <div class="button-create-new-race-container">
-                    <button class="button-create-new-race primary-button-blue">Criar nova corrida</button>
-                </div>
-            </header>
-            <section class="races-section">
-                <div class="grid-table">
-                    <ul class="grid-table-header">
-                        <li>Nome da corrida</li>
-                        <li>Local</li>
-                        <li>Data</li>
-                    </ul>
-                    <div class="grid-table-body" id="grid-table-body">
-                    </div>
-                </div>
-            </section>
-        </main>
-        <script type="module" src="./renderer.js"></script>
-    </body>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./renderer.js"></script>
+</body>
+
 </html>

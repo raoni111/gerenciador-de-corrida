@@ -72,6 +72,8 @@ ipcMain.handle('add-new-category', (event, categoryObj) => {
 
 ipcMain.handle('return-all-category', (event, index) => LocalStorageManager.returnAllCategories(index));
 
+ipcMain.handle('return-podio', (event, indexRace) => LocalStorageManager.returnPodio(indexRace));
+
 ipcMain.handle('return-participant', (event, index) => localStorageManager.returnAllParticipants(index));
 
 ipcMain.handle('delete-category', (event, indexObj) => {
@@ -80,4 +82,13 @@ ipcMain.handle('delete-category', (event, indexObj) => {
     indexObj.indexOfCategory,
   );
   return newCategories;
+});
+
+ipcMain.handle('add-new-participant-at-the-podio', (event, participantInfomation) => {
+  const newPodio = localStorageManager.addNewParticipantToPodio(
+    participantInfomation.raceIndex,
+    participantInfomation.participantSubscription,
+    participantInfomation.time,
+  );
+  return newPodio;
 });
