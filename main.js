@@ -1,4 +1,5 @@
-// Modules to control application life and create native browser window
+/* eslint-disable import/no-unresolved */
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 const {
   app, BrowserWindow, ipcMain,
 } = require('electron');
@@ -10,20 +11,18 @@ class MyApllication {
 
   createWindow() {
     this.mainWindow = new BrowserWindow({
-      width: 1200,
-      height: 700,
+      minWidth: 1200,
+      minHeight: 700,
       webPreferences: {
+        plugins: true,
         preload: path.join(__dirname, 'preload.js'),
         nodeIntegration: true,
+        webSecurity: false,
       },
       autoHideMenuBar: false,
     });
 
     this.mainWindow.loadFile(`${__dirname}/src/page/create-new-race/index.html`);
-  }
-
-  loadNewFile(filePath) {
-    this.mainWindow.loadFile(filePath);
   }
 }
 
@@ -90,5 +89,10 @@ ipcMain.handle('add-new-participant-at-the-podio', (event, participantInfomation
     participantInfomation.participantSubscription,
     participantInfomation.time,
   );
+  return newPodio;
+});
+
+ipcMain.handle('reset-podio-of-race', (event, indexRace) => {
+  const newPodio = localStorageManager.resetPodioOfRace(indexRace);
   return newPodio;
 });

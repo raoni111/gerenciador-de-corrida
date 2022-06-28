@@ -8,8 +8,9 @@ import TableCategoryManager from '../../class/table-category-manger.js';
 import FormCreateCategoryManger from '../../class/form-create-category-manager.js';
 import SelectCategoryManger from '../../class/select-category-manager.js';
 
-const { href } = window.location;
-const index = Number(href.slice(href.length - 1, href.length));
+const href = window.location.search.substring(1);
+const param = new URLSearchParams(href);
+const index = Number(param.get('index'));
 
 // create Participant
 const formContainer = document.querySelector('.form-create-new-race-conteiner');

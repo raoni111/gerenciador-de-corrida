@@ -33,6 +33,14 @@ export default class ElectronAPIManager {
     return letParticipants;
   }
 
+  static async resetPodioOfRace(indexRace) {
+    let letPodio;
+    await window.electronAPI.resetPodioOfRace(indexRace).then((podio) => {
+      letPodio = podio;
+    });
+    return letPodio;
+  }
+
   static async addNewCategory(category) {
     let letCategories;
     await window.electronAPI.addNewCategory(category).then((categories) => {

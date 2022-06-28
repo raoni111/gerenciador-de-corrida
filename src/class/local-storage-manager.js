@@ -64,6 +64,12 @@ class LocalStorageManager {
     return letParticipant;
   }
 
+  resetPodioOfRace(indexRace) {
+    races[indexRace].podio = [];
+    this.writeFileRaces(races);
+    return races[indexRace].podio;
+  }
+
   writeFileRaces(races) {
     fs.writeFile(this.pathRace, JSON.stringify(races), (error) => {
       if (error) {

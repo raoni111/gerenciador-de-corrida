@@ -2,8 +2,10 @@ import { createUlelementPartipant, createUlelementRace } from './service/createU
 
 export default class TableManager {
   constructor(tableOfRace, ElectronAPIManager) {
-    const { href } = window.location;
-    this.index = Number(href.slice(href.length - 1, href.length));
+    const { href } = window.location.search.substring(1);
+    const params = new URLSearchParams(href);
+
+    this.index = Number(params.get('index'));
     this.tableOfRace = tableOfRace;
     this.ElectronAPIManager = ElectronAPIManager;
   }
@@ -27,8 +29,7 @@ export default class TableManager {
   lestenerDelectButton(page) {
     this.tableOfRace.addEventListener('click', (e) => {
       const { target } = e;
-      const { tagName } = target;
-      const index = target.id.slice(6, 7);
+      const index = target.id.slice(-1);
 
       if (target.className === 'delect-button') {
         if (page === 'race') {
@@ -38,7 +39,7 @@ export default class TableManager {
         this.deleteParticipant(this.index, index);
       }
 
-      if (tagName === 'UL' || tagName === 'LI') {
+      if (target.id.slice(0, 10) === 'race-index') {
         window.location = `../participants/index.html?index=${index}`;
       }
     });

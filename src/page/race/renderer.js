@@ -15,6 +15,7 @@ const buttonInitRace = document.querySelector('#button-init-race');
 const buttonPlayTimer = document.querySelector('#button-play-timer');
 const buttonStopTimer = document.querySelector('#button-pause-time');
 const buttonRestartTimer = document.querySelector('#button-restart-timer');
+const resetButton = document.querySelector('#rest-podio-button');
 
 const formContent = document.querySelector('#form-add-at-the-podio-container');
 
@@ -24,9 +25,15 @@ const timer = new Timer(
   buttonPlayTimer,
   buttonStopTimer,
   buttonRestartTimer,
+  formContent,
 );
-
-const tablePodioManger = new TablePodioManger(tablePodio, ElectronAPIManager);
+const tablePodioManger = new TablePodioManger(
+  tablePodio,
+  timer,
+  resetButton,
+  ElectronAPIManager,
+  index,
+);
 
 const formaddAtThePodioManager = new FormAddAtThePodioManager(
   formContent,

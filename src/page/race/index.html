@@ -14,7 +14,7 @@
   <div class="create-new-category-container" display="false">
     <main class="main-content">
       <div class="back-button-container">
-        <div class="blu-button-conteiner">
+        <div class="blu-button-container">
           <button class="blu-button" id="back-button-race-podio">
             voltar
           </button>
@@ -22,7 +22,7 @@
         <div class="timer-container">
           <div class="time-content"></div>
           <div class="timer-buttons">
-            <div class="button-time-container blu-button-conteiner">
+            <div class="button-time-container blu-button-container">
               <button class="button-init-race blu-button" id="button-init-race" display="true">Começar corrida</button>
               <button class="button-pause-time timer-button" id="button-pause-time" display="false">
                 <img src="./imgs/icons8-pausa-120.png" alt="https://icons8.com">
@@ -36,18 +36,21 @@
             </div>
           </div>
         </div>
+        <div class="blu-button-container reset-podio-button-conteiner">
+          <button class="blu-button" id="rest-podio-button">Resetar podio</button>
+        </div>
       </div>
       <header class="header">
         <h1 class="title-page"></h1>
       </header>
       <section class="races-section">
-        <form action="POST" class="form-add-at-the-podio-container" id="form-add-at-the-podio-container">
+        <form action="POST" class="form-add-at-the-podio-container" id="form-add-at-the-podio-container" display="false">
           <div class="input-add-at-the-podio-conteiner">
             <div class="input-content">
               <label for="inscricao">Inscrição:</label><br>
               <input type="text" id="inscricao">
             </div>
-            <div class="button-add-at-the-podio-container blu-button-conteiner">
+            <div class="button-add-at-the-podio-container blu-button-container">
               <button class="blu-button" id="button-add-at-the-podio" type="submit">Adicionar</button>
             </div>
           </div>

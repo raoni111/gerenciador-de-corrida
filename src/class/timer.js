@@ -17,12 +17,14 @@ export default class Timer {
     buttonPlayTimer,
     buttonStopTimer,
     buttonRestartTimer,
+    formContent,
   ) {
     this.timeContent = timeContent;
     this.buttonInitRace = buttonInitRace;
     this.buttonPlayTimer = buttonPlayTimer;
     this.buttonStopTimer = buttonStopTimer;
     this.buttonRestartTimer = buttonRestartTimer;
+    this.formContent = formContent;
   }
 
   play() {
@@ -45,6 +47,7 @@ export default class Timer {
       }
       this.displayTime();
     }, 10);
+    this.displayFormContent('true');
   }
 
   stop() {
@@ -52,6 +55,7 @@ export default class Timer {
     this.displayTime();
     this.timerIsPlay = false;
     this.setColorOfTimer = '#fff';
+    this.displayFormContent('false');
   }
 
   restart() {
@@ -74,6 +78,7 @@ export default class Timer {
 
   initRace() {
     this.visibilitButton();
+    this.displayFormContent('true');
     this.play();
     this.setColorOfTimer = '#E24543';
   }
@@ -87,6 +92,10 @@ export default class Timer {
     this.buttonPlayTimer.setAttribute('display', 'true');
     this.buttonStopTimer.setAttribute('display', 'true');
     this.buttonRestartTimer.setAttribute('display', 'true');
+  }
+
+  displayFormContent(boolean) {
+    this.formContent.setAttribute('display', `${boolean}`);
   }
 
   listenerButtonsTimer() {
