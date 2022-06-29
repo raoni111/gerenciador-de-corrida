@@ -4,8 +4,9 @@ import Timer from '../../class/timer.js';
 import FormAddAtThePodioManager from '../../class/form-add-at-the-podio-manager.js';
 import TablePodioManger from '../../class/table-podio-manager.js';
 
-const { href } = window.location;
-const index = Number(href.slice(href.length - 1, href.length));
+const href = window.location.search.substring(1);
+const param = new URLSearchParams(href);
+const index = Number(param.get('index'));
 
 const buttonBack = document.querySelector('#back-button-race-podio');
 
@@ -26,6 +27,8 @@ const timer = new Timer(
   buttonStopTimer,
   buttonRestartTimer,
   formContent,
+  ElectronAPIManager,
+  index,
 );
 const tablePodioManger = new TablePodioManger(
   tablePodio,
@@ -44,17 +47,16 @@ const formaddAtThePodioManager = new FormAddAtThePodioManager(
 );
 
 formaddAtThePodioManager.litenerEvets();
-timer.initTimer();
 
 const htmlManger = new HTMLManager(ElectronAPIManager);
 
 buttonBack.addEventListener('click', () => {
   window.location = `../participants/index.html?index=${index}`;
+  timer.saveTime();
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const { href } = window.location;
-  const index = Number(href.slice(href.length - 1, href.length));
+  timer.initTimer();
   htmlManger.renderInformation(index, 'PODIO: ');
   tablePodioManger.initTablePodioManager(index);
 });

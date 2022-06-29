@@ -21,5 +21,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     addNewParticipantAtThePodio: (participantInformation) => ipcRenderer.invoke('add-new-participant-at-the-podio', participantInformation),
     returnPodio: (indexRace) => ipcRenderer.invoke('return-podio', indexRace),
     resetPodioOfRace: (indexRace) => ipcRenderer.invoke('reset-podio-of-race', indexRace),
+    saveTimeOfRace: (indexInformation) => ipcRenderer.invoke('save-time-of-race', indexInformation),
+    returnTimeOfRace: (indexRace) => ipcRenderer.invoke('return-time-of-race', indexRace),
+    resetTimeOfRace: (indexRace) => ipcRenderer.invoke('reset-time-of-race', indexRace),
   });
 });

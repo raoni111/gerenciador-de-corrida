@@ -1,3 +1,5 @@
+/* eslint-disable prefer-destructuring */
+/* eslint-disable no-nested-ternary */
 export default class Timer {
   milesecunds = 0;
 
@@ -18,6 +20,8 @@ export default class Timer {
     buttonStopTimer,
     buttonRestartTimer,
     formContent,
+    ElectronAPIManager,
+    indexRace,
   ) {
     this.timeContent = timeContent;
     this.buttonInitRace = buttonInitRace;
@@ -25,6 +29,8 @@ export default class Timer {
     this.buttonStopTimer = buttonStopTimer;
     this.buttonRestartTimer = buttonRestartTimer;
     this.formContent = formContent;
+    this.ElectronAPIManager = ElectronAPIManager;
+    this.indexRace = indexRace;
   }
 
   play() {
@@ -46,6 +52,7 @@ export default class Timer {
         this.hours += 1;
       }
       this.displayTime();
+      this.saveTime();
     }, 10);
     this.displayFormContent('true');
   }
@@ -59,21 +66,23 @@ export default class Timer {
   }
 
   restart() {
-    this.stop();
-    this.resetTime();
+    this.resetTimeOfRace();
     this.displayTime();
+    this.stop();
   }
 
-  resetTime() {
+  resetTimeOfRace() {
     this.milesecunds = 0;
     this.secunds = 0;
     this.minutes = 0;
     this.hours = 0;
+    this.resetTime();
   }
 
   initTimer() {
     this.displayTime();
     this.listenerButtonsTimer();
+    this.returnTime();
   }
 
   initRace() {
@@ -81,6 +90,39 @@ export default class Timer {
     this.displayFormContent('true');
     this.play();
     this.setColorOfTimer = '#E24543';
+  }
+
+  saveTime() {
+    const time = [
+      this.milesecunds,
+      this.secunds,
+      this.minutes,
+      this.hours,
+    ];
+
+    this.ElectronAPIManager.saveTimeOfRace(this.indexRace, time).then((time) => {
+      this.setTime(time);
+    });
+    this.displayTime();
+  }
+
+  resetTime() {
+    this.ElectronAPIManager.resetTimeOfRace(this.indexRace);
+  }
+
+  returnTime() {
+    this.ElectronAPIManager.returnTimeOfRace(this.indexRace).then((time) => {
+      this.setTime(time);
+    });
+  }
+
+  setTime(time) {
+    if (!time || time.length === 0) return;
+    this.milesecunds = time[0];
+    this.secunds = time[1];
+    this.minutes = time[2];
+    this.hours = time[3];
+    this.displayTime();
   }
 
   set setColorOfTimer(color) {
@@ -119,7 +161,6 @@ export default class Timer {
   }
 
   get time() {
-    // eslint-disable-next-line no-nested-ternary
     const milesecundsString = this.milesecunds < 10 ? `00${this.milesecunds}`
       : (this.milesecunds < 100 ? `0${this.milesecunds}` : `${this.milesecunds}`);
     const secondsString = this.secunds < 10 ? `0${this.secunds}` : `${this.secunds}`;

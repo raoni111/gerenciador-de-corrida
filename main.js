@@ -96,3 +96,12 @@ ipcMain.handle('reset-podio-of-race', (event, indexRace) => {
   const newPodio = localStorageManager.resetPodioOfRace(indexRace);
   return newPodio;
 });
+
+ipcMain.handle('save-time-of-race', (event, timeInfomation) => {
+  const time = localStorageManager.saveTimer(timeInfomation.indexRace, timeInfomation.time);
+  return time;
+});
+
+ipcMain.handle('return-time-of-race', (event, indexRace) => localStorageManager.returnTime(indexRace));
+
+ipcMain.handle('reset-time-of-race', (event, indexRace) => localStorageManager.resetTime(indexRace));

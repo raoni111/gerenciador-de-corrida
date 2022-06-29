@@ -13,6 +13,7 @@ export default class RaceFactory {
       participants: [],
       podio: [],
       categories: [],
+      time: [],
     };
     return this.race;
   }

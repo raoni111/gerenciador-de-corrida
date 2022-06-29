@@ -84,4 +84,31 @@ export default class ElectronAPIManager {
     });
     return letPodio;
   }
+
+  static async saveTimeOfRace(indexRace, time) {
+    let letTime;
+    await window.electronAPI.saveTimeOfRace({
+      indexRace,
+      time,
+    }).then((time) => {
+      letTime = time;
+    });
+    return letTime;
+  }
+
+  static async returnTimeOfRace(indexRace) {
+    let letTime;
+    await window.electronAPI.returnTimeOfRace(indexRace).then((time) => {
+      letTime = time;
+    });
+    return letTime;
+  }
+
+  static async resetTimeOfRace(indexRace) {
+    let letTime;
+    await window.electronAPI.resetTimeOfRace(indexRace).then((time) => {
+      letTime = time;
+    });
+    return letTime;
+  }
 }

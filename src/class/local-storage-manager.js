@@ -64,6 +64,22 @@ class LocalStorageManager {
     return letParticipant;
   }
 
+  saveTimer(indexRace, time) {
+    races[indexRace].time = time;
+    this.writeFileRaces(races);
+    return races[indexRace].time;
+  }
+
+  resetTime(indexRace) {
+    races[indexRace].time = [];
+    this.writeFileRaces(races);
+    return races[indexRace].time;
+  }
+
+  returnTime(indexRace) {
+    return races[indexRace].time;
+  }
+
   resetPodioOfRace(indexRace) {
     races[indexRace].podio = [];
     this.writeFileRaces(races);
