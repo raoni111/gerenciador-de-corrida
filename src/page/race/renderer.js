@@ -17,6 +17,7 @@ const buttonPlayTimer = document.querySelector('#button-play-timer');
 const buttonStopTimer = document.querySelector('#button-pause-time');
 const buttonRestartTimer = document.querySelector('#button-restart-timer');
 const resetButton = document.querySelector('#rest-podio-button');
+const printButton = document.querySelector('#print-button');
 
 const formContent = document.querySelector('#form-add-at-the-podio-container');
 
@@ -53,6 +54,10 @@ const htmlManger = new HTMLManager(ElectronAPIManager);
 buttonBack.addEventListener('click', () => {
   window.location = `../participants/index.html?index=${index}`;
   timer.saveTime();
+});
+
+printButton.addEventListener('click', () => {
+  ElectronAPIManager.generatePDF(index);
 });
 
 window.addEventListener('DOMContentLoaded', () => {

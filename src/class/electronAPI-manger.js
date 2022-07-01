@@ -111,4 +111,8 @@ export default class ElectronAPIManager {
     });
     return letTime;
   }
+
+  static async generatePDF(index) {
+    window.electronAPI.generatePDF(index);
+  }
 }

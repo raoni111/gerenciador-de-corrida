@@ -4,6 +4,8 @@ const {
   app, BrowserWindow, ipcMain,
 } = require('electron');
 const path = require('path');
+const DisplayPDF = require('./display-pdf');
+const GeneretePdf = require('./src/class/genarete-pdf');
 const LocalStorageManager = require('./src/class/local-storage-manager');
 
 class MyApllication {
@@ -105,3 +107,10 @@ ipcMain.handle('save-time-of-race', (event, timeInfomation) => {
 ipcMain.handle('return-time-of-race', (event, indexRace) => localStorageManager.returnTime(indexRace));
 
 ipcMain.handle('reset-time-of-race', (event, indexRace) => localStorageManager.resetTime(indexRace));
+
+ipcMain.handle('generete-pdf', (event, indexRace) => {
+  const generatePDF = new GeneretePdf();
+  const displayPDF = new DisplayPDF();
+  generatePDF.generetePdf(indexRace);
+  displayPDF.createWindow();
+});

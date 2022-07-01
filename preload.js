@@ -24,5 +24,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     saveTimeOfRace: (indexInformation) => ipcRenderer.invoke('save-time-of-race', indexInformation),
     returnTimeOfRace: (indexRace) => ipcRenderer.invoke('return-time-of-race', indexRace),
     resetTimeOfRace: (indexRace) => ipcRenderer.invoke('reset-time-of-race', indexRace),
+    generatePDF: (indexRace) => ipcRenderer.invoke('generete-pdf', indexRace),
   });
 });

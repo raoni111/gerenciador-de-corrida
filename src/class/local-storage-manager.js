@@ -1,5 +1,4 @@
 const fs = require('fs');
-
 const path = require('path');
 const races = require('../local_storage/races.json');
 

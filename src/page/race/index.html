@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="./styles.css">
   <title></title>
 </head>
-
 <body>
   <div class="create-new-category-container" display="false">
     <main class="main-content">
@@ -38,6 +37,7 @@
         </div>
         <div class="blu-button-container reset-podio-button-conteiner">
           <button class="blu-button" id="rest-podio-button">Resetar podio</button>
+          <button class="blu-button" id="print-button">Gerar PDF</button>
         </div>
       </div>
       <header class="header">
@@ -71,6 +71,8 @@
         </div>
       </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script type="module" src="./renderer.js"></script>
 </body>
 
