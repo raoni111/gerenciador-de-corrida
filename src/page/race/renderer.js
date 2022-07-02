@@ -18,23 +18,28 @@ const buttonStopTimer = document.querySelector('#button-pause-time');
 const buttonRestartTimer = document.querySelector('#button-restart-timer');
 const resetButton = document.querySelector('#rest-podio-button');
 const printButton = document.querySelector('#print-button');
+const finishButton = document.querySelector('#finish-race');
 
 const formContent = document.querySelector('#form-add-at-the-podio-container');
 
+const tablePodioManger = new TablePodioManger(
+  tablePodio,
+  resetButton,
+  ElectronAPIManager,
+  index,
+);
+
 const timer = new Timer(
+  tablePodioManger,
   timeContent,
   buttonInitRace,
   buttonPlayTimer,
   buttonStopTimer,
   buttonRestartTimer,
-  formContent,
-  ElectronAPIManager,
-  index,
-);
-const tablePodioManger = new TablePodioManger(
-  tablePodio,
-  timer,
+  printButton,
+  finishButton,
   resetButton,
+  formContent,
   ElectronAPIManager,
   index,
 );
@@ -61,7 +66,7 @@ printButton.addEventListener('click', () => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  timer.initTimer();
   htmlManger.renderInformation(index, 'PODIO: ');
   tablePodioManger.initTablePodioManager(index);
+  timer.initTimer();
 });

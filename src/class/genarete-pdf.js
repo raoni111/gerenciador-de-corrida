@@ -1,5 +1,6 @@
 /* eslint-disable new-cap */
 const { jsPDF } = require('jspdf');
+const path = require('path');
 const races = require('../local_storage/races.json');
 require('jspdf-autotable');
 
@@ -22,7 +23,7 @@ class GeneretePdf {
       'Sexo',
       'Tempo',
     ], this.row);
-    doc.save('podio.pdf');
+    doc.save(path.join(__dirname, '..', 'pdfs', 'podio.pdf'));
   }
 
   coletDates(indexRace) {

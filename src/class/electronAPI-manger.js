@@ -115,4 +115,19 @@ export default class ElectronAPIManager {
   static async generatePDF(index) {
     window.electronAPI.generatePDF(index);
   }
+
+  static async setStateOfRace(indexRace, state) {
+    await window.electronAPI.setStateOfRace({
+      indexOfRace: indexRace,
+      state,
+    });
+  }
+
+  static async returnStateOfRace(indexRace) {
+    let letState;
+    await window.electronAPI.returnStateOfRace(indexRace).then((state) => {
+      letState = state;
+    });
+    return letState;
+  }
 }

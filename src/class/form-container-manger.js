@@ -1,12 +1,15 @@
 export default class FormContainerManager {
+  togle = false;
+
   constructor(formContainer, buttonCreateNewRace, buttonClose) {
     this.formContainer = formContainer;
     this.buttonCreateNewRace = buttonCreateNewRace;
     this.buttonClose = buttonClose;
   }
 
-  setAttribute(boolean) {
-    this.formContainer.setAttribute('display', boolean);
+  setAttribute() {
+    this.togle = !this.togle;
+    this.formContainer.setAttribute('display', `${this.togle}`);
   }
 
   listenButtonOpenClose() {

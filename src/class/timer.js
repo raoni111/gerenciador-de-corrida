@@ -1,6 +1,10 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-nested-ternary */
 export default class Timer {
+  intervalId;
+
+  stateOfRace;
+
   milesecunds = 0;
 
   secunds = 0;
@@ -9,25 +13,31 @@ export default class Timer {
 
   hours = 0;
 
-  intervalId;
-
   timerIsPlay = false;
 
   constructor(
+    tablePodioManger,
     timeContent,
     buttonInitRace,
     buttonPlayTimer,
     buttonStopTimer,
     buttonRestartTimer,
+    printButton,
+    finishButton,
+    resetButton,
     formContent,
     ElectronAPIManager,
     indexRace,
   ) {
+    this.tablePodioManger = tablePodioManger;
     this.timeContent = timeContent;
     this.buttonInitRace = buttonInitRace;
     this.buttonPlayTimer = buttonPlayTimer;
     this.buttonStopTimer = buttonStopTimer;
     this.buttonRestartTimer = buttonRestartTimer;
+    this.printButton = printButton;
+    this.finishButton = finishButton;
+    this.resetButton = resetButton;
     this.formContent = formContent;
     this.ElectronAPIManager = ElectronAPIManager;
     this.indexRace = indexRace;
@@ -67,6 +77,7 @@ export default class Timer {
 
   restart() {
     this.resetTimeOfRace();
+    this.resetTime();
     this.displayTime();
     this.stop();
   }
@@ -76,20 +87,40 @@ export default class Timer {
     this.secunds = 0;
     this.minutes = 0;
     this.hours = 0;
-    this.resetTime();
   }
 
   initTimer() {
     this.displayTime();
     this.listenerButtonsTimer();
     this.returnTime();
+    this.returnStateOfRace();
   }
 
   initRace() {
-    this.visibilitButton();
+    this.verifyStateOfRace();
     this.displayFormContent('true');
     this.play();
     this.setColorOfTimer = '#E24543';
+  }
+
+  returnStateOfRace() {
+    this.ElectronAPIManager.returnStateOfRace(this.indexRace).then((state) => {
+      this.stateOfRace = state;
+      this.verifyStateOfRace();
+    });
+  }
+
+  verifyStateOfRace() {
+    if (this.stateOfRace === 'running') {
+      this.runningVisibilitButton();
+    }
+    if (this.stateOfRace === 'finish') {
+      this.finishRaceVisibilitButton();
+    }
+
+    if (this.stateOfRace === 'reseted') {
+      this.reseteRaceVisibilitButton();
+    }
   }
 
   saveTime() {
@@ -129,11 +160,38 @@ export default class Timer {
     this.timeContent.style.color = color;
   }
 
-  visibilitButton() {
+  visibilitResete() {
     this.buttonInitRace.setAttribute('display', 'false');
+    this.resetButton.setAttribute('display', 'false');
+    this.buttonPlayTimer.setAttribute('display', 'false');
+    this.buttonRestartTimer.setAttribute('display', 'false');
+    this.buttonStopTimer.setAttribute('display', 'false');
+    this.finishButton.setAttribute('display', 'false');
+    this.printButton.setAttribute('display', 'false');
+  }
+
+  runningVisibilitButton() {
+    this.visibilitResete();
     this.buttonPlayTimer.setAttribute('display', 'true');
     this.buttonStopTimer.setAttribute('display', 'true');
     this.buttonRestartTimer.setAttribute('display', 'true');
+    this.resetButton.setAttribute('display', 'true');
+    this.finishButton.setAttribute('display', 'true');
+  }
+
+  finishRaceVisibilitButton() {
+    this.visibilitResete();
+    this.printButton.setAttribute('display', 'true');
+    this.resetButton.setAttribute('display', 'true');
+    this.stop();
+  }
+
+  reseteRaceVisibilitButton() {
+    this.visibilitResete();
+    this.buttonInitRace.setAttribute('display', 'true');
+
+    this.resetTimeOfRace();
+    this.stop();
   }
 
   displayFormContent(boolean) {
@@ -143,6 +201,8 @@ export default class Timer {
   listenerButtonsTimer() {
     this.buttonInitRace.addEventListener('click', () => {
       this.initRace();
+      this.runningVisibilitButton();
+      this.ElectronAPIManager.setStateOfRace(this.indexRace, 'running');
     });
     this.buttonStopTimer.addEventListener('click', () => {
       this.stop();
@@ -153,6 +213,15 @@ export default class Timer {
     });
     this.buttonRestartTimer.addEventListener('click', () => {
       this.restart();
+    });
+    this.finishButton.addEventListener('click', () => {
+      this.finishRaceVisibilitButton();
+      this.ElectronAPIManager.setStateOfRace(this.indexRace, 'finish');
+    });
+    this.resetButton.addEventListener('click', () => {
+      this.reseteRaceVisibilitButton();
+      this.ElectronAPIManager.setStateOfRace(this.indexRace, 'reseted');
+      this.tablePodioManger.initTablePodioManager(this.indexRace);
     });
   }
 

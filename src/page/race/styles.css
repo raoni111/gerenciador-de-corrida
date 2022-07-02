@@ -94,6 +94,12 @@ button:nth-child(4)[display="true"] {
 .reset-podio-button-conteiner {
   width: auto;
 }
+.podio-button {
+  margin-right: 1rem;
+}
+.podio-button[display="false"] {
+  display: none;
+}
 
 .main-content .header .title-page {
   padding: 1rem;

@@ -104,7 +104,7 @@ class LocalStorageManager {
   deleteCategory(indexOfRace, indexOfCategory) {
     races[indexOfRace].categories.splice(indexOfCategory, 1);
 
-    this.writeFileCategory(races);
+    this.writeFileRaces(races);
 
     return races[indexOfRace].categories;
   }
@@ -121,6 +121,19 @@ class LocalStorageManager {
   returnAllParticipants(index) {
     const { participants } = races[index];
     return participants;
+  }
+
+  setStatusOfRace(indexOfRace, state) {
+    races[indexOfRace].stateOfRace = state;
+    if (state === 'reseted') {
+      races[indexOfRace].time = [];
+      races[indexOfRace].podio = [];
+    }
+    this.writeFileRaces(races);
+  }
+
+  static returnStateOfRace(indexOfRace) {
+    return races[indexOfRace].stateOfRace;
   }
 
   static returnAllCategories(index) {

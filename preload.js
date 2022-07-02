@@ -25,5 +25,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     returnTimeOfRace: (indexRace) => ipcRenderer.invoke('return-time-of-race', indexRace),
     resetTimeOfRace: (indexRace) => ipcRenderer.invoke('reset-time-of-race', indexRace),
     generatePDF: (indexRace) => ipcRenderer.invoke('generete-pdf', indexRace),
+    setStateOfRace: (stateInformation) => ipcRenderer.invoke('set-new-state-of-race', stateInformation),
+    returnStateOfRace: (indexRace) => ipcRenderer.invoke('return-state-of-race', indexRace),
   });
 });

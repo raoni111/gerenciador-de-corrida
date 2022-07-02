@@ -74,14 +74,13 @@ formCreateCategoryCM.listenButtonOpenClose();
 
 window.addEventListener('DOMContentLoaded', () => {
   htmlManger.renderInformation(index);
-
-  selectCategoryManager.initSelectCategory();
   tableOfParticipantManager.initParticipant(index);
   tableCategoryManager.initTableOfCategory();
 });
 
 buttonCreateNewRace.addEventListener('click', () => {
-  formContainerManager.setAttribute('true');
+  formContainerManager.setAttribute();
+  selectCategoryManager.initSelectCategory();
 });
 
 buttonClose.addEventListener('click', () => {

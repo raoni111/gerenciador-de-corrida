@@ -1,9 +1,8 @@
 import { createUlelementPartipantPodio } from './service/createUlElement.js';
 
 export default class TablePodioManger {
-  constructor(tablePodioManger, timer, resetButton, ElectronAPIManager, index) {
+  constructor(tablePodioManger, resetButton, ElectronAPIManager, index) {
     this.tablePodioManger = tablePodioManger;
-    this.timer = timer;
     this.resetButton = resetButton;
     this.ElectronAPIManager = ElectronAPIManager;
     this.index = index;
@@ -17,23 +16,9 @@ export default class TablePodioManger {
     });
   }
 
-  resetPodio(raceIndex) {
-    this.ElectronAPIManager.resetPodioOfRace(raceIndex).then((podio) => {
-      this.displayParticipant(podio);
-    });
-    this.timer.restart();
-  }
-
-  listenerRestButton() {
-    this.resetButton.addEventListener('click', () => {
-      this.resetPodio(this.index);
-    });
-  }
-
   initTablePodioManager(indexRace) {
     this.ElectronAPIManager.returnPodio(indexRace).then((podio) => {
       this.displayParticipant(podio);
     });
-    this.listenerRestButton();
   }
 }

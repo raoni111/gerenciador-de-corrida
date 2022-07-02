@@ -4,7 +4,7 @@ const {
   app, BrowserWindow, ipcMain,
 } = require('electron');
 const path = require('path');
-const DisplayPDF = require('./display-pdf');
+const DisplayPDF = require('./src/class/display-pdf');
 const GeneretePdf = require('./src/class/genarete-pdf');
 const LocalStorageManager = require('./src/class/local-storage-manager');
 
@@ -113,4 +113,16 @@ ipcMain.handle('generete-pdf', (event, indexRace) => {
   const displayPDF = new DisplayPDF();
   generatePDF.generetePdf(indexRace);
   displayPDF.createWindow();
+});
+
+ipcMain.handle('set-new-state-of-race', (event, stateInfomation) => {
+  localStorageManager.setStatusOfRace(
+    stateInfomation.indexOfRace,
+    stateInfomation.state,
+  );
+});
+
+ipcMain.handle('return-state-of-race', (event, indexOfRace) => {
+  const state = LocalStorageManager.returnStateOfRace(indexOfRace);
+  return state;
 });
