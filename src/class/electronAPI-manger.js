@@ -130,4 +130,15 @@ export default class ElectronAPIManager {
     });
     return letState;
   }
+
+  static async searchByCategory(categoryIndex, indexRace) {
+    let letEspecificParticipants;
+    await window.electronAPI.searchByCategory({
+      categoryIndex,
+      indexRace,
+    }).then((especificParticipants) => {
+      letEspecificParticipants = especificParticipants;
+    });
+    return letEspecificParticipants;
+  }
 }

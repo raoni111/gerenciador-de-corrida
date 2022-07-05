@@ -1,6 +1,6 @@
-export default function CreateSelectCategoryElement(category) {
+export default function CreateSelectCategoryElement(category, index = '') {
   const li = `
-    <li class="category-li-element">
+    <li id="${index}" class="category-li-element">
       ${category.name}
     </li>
   `;

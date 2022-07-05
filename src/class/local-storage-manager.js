@@ -144,6 +144,23 @@ class LocalStorageManager {
     return races[indexRace].podio;
   }
 
+  static searchByCategory(categoryIndex, indexRace) {
+    const { podio } = races[indexRace];
+
+    if (!categoryIndex) return podio;
+
+    const especificParticipants = [];
+
+    podio.filter((participant) => {
+      if (participant.category === races[indexRace].categories[categoryIndex].name) {
+        especificParticipants.push(participant);
+      }
+      return participant;
+    });
+
+    return especificParticipants;
+  }
+
   static get returnRaces() {
     return races.length === 0 ? [] : races;
   }

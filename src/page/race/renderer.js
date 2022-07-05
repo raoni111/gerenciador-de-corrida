@@ -3,6 +3,8 @@ import ElectronAPIManager from '../../class/electronAPI-manger.js';
 import Timer from '../../class/timer.js';
 import FormAddAtThePodioManager from '../../class/form-add-at-the-podio-manager.js';
 import TablePodioManger from '../../class/table-podio-manager.js';
+import SelectCategoryManger from '../../class/select-category-manager.js';
+import SearchByCategory from '../../class/search-by-category.js';
 
 const href = window.location.search.substring(1);
 const param = new URLSearchParams(href);
@@ -19,6 +21,12 @@ const buttonRestartTimer = document.querySelector('#button-restart-timer');
 const resetButton = document.querySelector('#rest-podio-button');
 const printButton = document.querySelector('#print-button');
 const finishButton = document.querySelector('#finish-race');
+
+const navContainer = document.querySelector('#nav-container');
+const searchByCategoryContainer = document.querySelector('.search-by-category-container');
+
+const selectGroup = document.querySelector('.grup-of-category-before-input');
+const inputOfCategory = document.querySelector('#input-of-category');
 
 const formContent = document.querySelector('#form-add-at-the-podio-container');
 
@@ -39,7 +47,23 @@ const timer = new Timer(
   printButton,
   finishButton,
   resetButton,
+  searchByCategoryContainer,
+  navContainer,
   formContent,
+  ElectronAPIManager,
+  index,
+);
+
+const selectCategoryManager = new SelectCategoryManger(
+  selectGroup,
+  inputOfCategory,
+  ElectronAPIManager,
+  index,
+);
+
+const searchByCategory = new SearchByCategory(
+  selectCategoryManager,
+  tablePodioManger,
   ElectronAPIManager,
   index,
 );
@@ -53,6 +77,7 @@ const formaddAtThePodioManager = new FormAddAtThePodioManager(
 );
 
 formaddAtThePodioManager.litenerEvets();
+searchByCategory.listenerSelecManager();
 
 const htmlManger = new HTMLManager(ElectronAPIManager);
 
@@ -69,4 +94,5 @@ window.addEventListener('DOMContentLoaded', () => {
   htmlManger.renderInformation(index, 'PODIO: ');
   tablePodioManger.initTablePodioManager(index);
   timer.initTimer();
+  selectCategoryManager.initSelectCategory(true);
 });

@@ -3,6 +3,8 @@ import CreateSelectCategoryElement from './service/create-select-category-elemen
 export default class SelectCategoryManger {
   displayCategoryGrup = false;
 
+  executed = false;
+
   constructor(categoryGrup, inputOfCategory, ElectronAPIManger, indexOfRace) {
     this.categoryGrup = categoryGrup;
     this.inputOfCategory = inputOfCategory;
@@ -10,16 +12,27 @@ export default class SelectCategoryManger {
     this.indexOfRace = indexOfRace;
   }
 
-  initSelectCategory() {
+  initSelectCategory(race = false) {
     this.categoryGrup.textContent = '';
+    if (race) {
+      this.categoryGrup.innerHTML = `
+        <li class="category-li-element">
+          Geral
+        </li>
+      `;
+      this.inputOfCategory.value = 'Geral';
+    }
     this.ElectronAPIManger.returnAllCategory(this.indexOfRace).then((categories) => {
-      categories.forEach((category) => {
-        const li = CreateSelectCategoryElement(category);
+      categories.forEach((category, index) => {
+        const li = CreateSelectCategoryElement(category, index);
         this.categoryGrup.innerHTML += li;
       });
     });
-    this.listenerInput();
-    this.listenerCategory();
+    if (!this.executed) {
+      this.listenerInput();
+      this.listenerCategory();
+    }
+    this.executed = true;
   }
 
   listenerCategory() {
@@ -33,7 +46,7 @@ export default class SelectCategoryManger {
 
   listenerInput() {
     this.inputOfCategory.parentElement.addEventListener('click', (e) => {
-      if (e.target.id === 'input-of-category') {
+      if (e.target.localName === 'input') {
         this.togleAtribute();
       }
     });
@@ -41,6 +54,13 @@ export default class SelectCategoryManger {
 
   togleAtribute() {
     this.displayCategoryGrup = !this.displayCategoryGrup;
-    this.categoryGrup.setAttribute('display', `${this.displayCategoryGrup}`);
+    this.categoryGrup.setAttribute(
+      'display',
+      this.displayCategoryGrup,
+    );
+  }
+
+  get returnCategorySelected() {
+    return this.inputOfCategory.value;
   }
 }

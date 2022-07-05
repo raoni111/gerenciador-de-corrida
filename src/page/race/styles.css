@@ -3,6 +3,23 @@ body {
   background-color: #131F30;
 }
 
+.input-conteiner {
+  margin-top: 1rem;
+}
+.input-conteiner label {
+  font-size: 1.5rem;
+  color: #FFF;
+}
+.input-conteiner input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  color: #FFF;
+  background-color: #213552;
+}
+
 .timer-container {
   display: flex;
   flex-direction: column;
@@ -106,23 +123,67 @@ button:nth-child(4)[display="true"] {
   color: rgb(255, 255, 255);
   font-size: 2.5rem;
 }
-
-.races-section .form-add-at-the-podio-container {
-  display: block;
-  display: auto;
-  overflow: hidden;
+.races-section .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 0px;
-  margin-bottom: 2rem;
   transition: all 0.2s ease-in-out;
 }
-.races-section .form-add-at-the-podio-container[display="true"] {
+.races-section .nav-container[display="true"] {
   height: 90px;
 }
-
+.races-section .nav-container .input-conteiner {
+  position: relative;
+}
+.races-section .nav-container .input-conteiner .grup-of-category-before-input {
+  position: absolute;
+  overflow-y: auto;
+  width: 100%;
+  height: 100px;
+  margin-top: 0.2rem;
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  list-style: none;
+  background-color: #213552;
+  color: #fff;
+  z-index: 2;
+  transition: all 0.2s ease-in-out;
+}
+.races-section .nav-container .input-conteiner ul::-webkit-scrollbar {
+  width: 5px;
+  padding-right: 0.5rem;
+}
+.races-section .nav-container .input-conteiner ul::-webkit-scrollbar-thumb {
+  background-color: #3C3EC1;
+  border-radius: 20px;
+}
+.races-section .nav-container .input-conteiner ul li {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.races-section .nav-container .input-conteiner ul li:hover {
+  background-color: #131F30;
+}
+.races-section .nav-container .input-conteiner ul[display="false"] {
+  overflow: hidden;
+  height: 0px;
+  background-color: transparent;
+}
+.races-section .form-add-at-the-podio-container {
+  display: block;
+  height: auto;
+  margin-bottom: 2rem;
+}
 .races-section .form-add-at-the-podio-container .input-add-at-the-podio-conteiner {
   display: flex;
   justify-content: start;
   align-items: center;
+}
+.races-section .form-add-at-the-podio-container[display="false"] {
+  display: none;
 }
 
 .races-section .form-add-at-the-podio-container .input-add-at-the-podio-conteiner .button-add-at-the-podio-container {
@@ -146,7 +207,10 @@ button:nth-child(4)[display="true"] {
   color: #FFF;
   background-color: #213552;
 }
-
+.races-section .nav-container .search-by-category-container[display="false"] {
+  overflow: hidden;
+  display: none;
+}
 .races-section .grid-table {
   width: 100%;
 }
@@ -186,8 +250,6 @@ button:nth-child(4)[display="true"] {
   border-radius: 5px;
   background-color: #213552;
 }
-
-.races-section .grid-table .grid-table-body .grid-table-row li {}
 
 .races-section .grid-table .grid-table-body .grid-table-row li .delect-button {
   cursor: pointer;

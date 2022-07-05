@@ -126,3 +126,9 @@ ipcMain.handle('return-state-of-race', (event, indexOfRace) => {
   const state = LocalStorageManager.returnStateOfRace(indexOfRace);
   return state;
 });
+
+ipcMain.handle('search-by-category', (event, searchInfomation) => {
+  const especificParticipants = LocalStorageManager
+    .searchByCategory(searchInfomation.categoryIndex, searchInfomation.indexRace);
+  return especificParticipants;
+});

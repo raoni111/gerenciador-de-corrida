@@ -27,5 +27,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     generatePDF: (indexRace) => ipcRenderer.invoke('generete-pdf', indexRace),
     setStateOfRace: (stateInformation) => ipcRenderer.invoke('set-new-state-of-race', stateInformation),
     returnStateOfRace: (indexRace) => ipcRenderer.invoke('return-state-of-race', indexRace),
+    searchByCategory: (searchInformation) => ipcRenderer.invoke('search-by-category', searchInformation),
   });
 });

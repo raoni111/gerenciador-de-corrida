@@ -45,17 +45,27 @@
         <h1 class="title-page"></h1>
       </header>
       <section class="races-section">
-        <form action="POST" class="form-add-at-the-podio-container" id="form-add-at-the-podio-container" display="false">
-          <div class="input-add-at-the-podio-conteiner">
-            <div class="input-content">
-              <label for="inscricao">Inscrição:</label><br>
-              <input type="text" id="inscricao">
+        <div class="nav-container" id="nav-container" display="false">
+          <form action="POST" class="form-add-at-the-podio-container" id="form-add-at-the-podio-container"  display="false">
+            <div class="input-add-at-the-podio-conteiner">
+              <div class="input-content">
+                <label for="inscricao">Inscrição:</label><br>
+                <input type="text" id="inscricao">
+              </div>
+              <div class="button-add-at-the-podio-container blu-button-container">
+                <button class="blu-button" id="button-add-at-the-podio" type="submit">Adicionar</button>
+              </div>
             </div>
-            <div class="button-add-at-the-podio-container blu-button-container">
-              <button class="blu-button" id="button-add-at-the-podio" type="submit">Adicionar</button>
+          </form>
+          <form action="POST" class="search-by-category-container" display="false">
+            <div class="input-conteiner">
+              <label>Ordenar por categoria:</label><br />
+              <input type="text" id="input-of-category" disabled>
+              <ul class="grup-of-category-before-input" id="grup-of-category-before-input" display="false">
+              </ul>
             </div>
-          </div>
-        </form>
+          </form action="POST">
+        </div>
         <div class="grid-table">
           <ul class="grid-table-header">
             <li>Posição</li>

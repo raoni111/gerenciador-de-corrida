@@ -25,6 +25,8 @@ export default class Timer {
     printButton,
     finishButton,
     resetButton,
+    searchByCategoryContainer,
+    navContainer,
     formContent,
     ElectronAPIManager,
     indexRace,
@@ -38,6 +40,8 @@ export default class Timer {
     this.printButton = printButton;
     this.finishButton = finishButton;
     this.resetButton = resetButton;
+    this.searchByCategoryContainer = searchByCategoryContainer;
+    this.navContainer = navContainer;
     this.formContent = formContent;
     this.ElectronAPIManager = ElectronAPIManager;
     this.indexRace = indexRace;
@@ -168,6 +172,9 @@ export default class Timer {
     this.buttonStopTimer.setAttribute('display', 'false');
     this.finishButton.setAttribute('display', 'false');
     this.printButton.setAttribute('display', 'false');
+    this.navContainer.setAttribute('display', 'false');
+    this.formContent.setAttribute('display', 'false');
+    this.searchByCategoryContainer.setAttribute('display', 'false');
   }
 
   runningVisibilitButton() {
@@ -177,6 +184,9 @@ export default class Timer {
     this.buttonRestartTimer.setAttribute('display', 'true');
     this.resetButton.setAttribute('display', 'true');
     this.finishButton.setAttribute('display', 'true');
+    this.searchByCategoryContainer.setAttribute('display', 'false');
+    this.navContainer.setAttribute('display', 'true');
+    this.formContent.setAttribute('display', 'true');
   }
 
   finishRaceVisibilitButton() {
@@ -184,18 +194,22 @@ export default class Timer {
     this.printButton.setAttribute('display', 'true');
     this.resetButton.setAttribute('display', 'true');
     this.stop();
+    this.searchByCategoryContainer.setAttribute('display', 'true');
+    this.navContainer.setAttribute('display', 'true');
   }
 
   reseteRaceVisibilitButton() {
     this.visibilitResete();
     this.buttonInitRace.setAttribute('display', 'true');
-
+    this.navContainer.setAttribute('display', 'false');
+    this.searchByCategoryContainer.setAttribute('display', 'false');
     this.resetTimeOfRace();
     this.stop();
   }
 
   displayFormContent(boolean) {
     this.formContent.setAttribute('display', `${boolean}`);
+    this.navContainer.setAttribute('display', `${boolean}`);
   }
 
   listenerButtonsTimer() {

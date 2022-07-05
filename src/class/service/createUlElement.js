@@ -12,7 +12,7 @@ export function createUlelementRace(race, index) {
   return ul;
 }
 
-export function createUlelementPartipant(participant, index) {
+export function createUlelementParticipant(participant, index) {
   const ul = `
     <ul class="grid-table-row" id="index-${index}">
         <li id="index-${index}">${participant.subscription}</li>

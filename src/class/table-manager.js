@@ -1,4 +1,4 @@
-import { createUlelementPartipant, createUlelementRace } from './service/createUlElement.js';
+import { createUlelementParticipant, createUlelementRace } from './service/createUlElement.js';
 
 export default class TableManager {
   constructor(tableOfRace, ElectronAPIManager) {
@@ -21,7 +21,7 @@ export default class TableManager {
   displayPartipant(participants) {
     this.tableOfRace.textContent = '';
     participants.forEach((participant, index) => {
-      const ul = createUlelementPartipant(participant, index);
+      const ul = createUlelementParticipant(participant, index);
       this.tableOfRace.innerHTML += ul;
     });
   }
