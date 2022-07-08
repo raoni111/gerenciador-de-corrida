@@ -25,6 +25,7 @@ export default class Timer {
     printButton,
     finishButton,
     resetButton,
+    selectCategory,
     searchByCategoryContainer,
     navContainer,
     formContent,
@@ -40,6 +41,7 @@ export default class Timer {
     this.printButton = printButton;
     this.finishButton = finishButton;
     this.resetButton = resetButton;
+    this.selectCategory = selectCategory;
     this.searchByCategoryContainer = searchByCategoryContainer;
     this.navContainer = navContainer;
     this.formContent = formContent;
@@ -205,6 +207,13 @@ export default class Timer {
     this.searchByCategoryContainer.setAttribute('display', 'false');
     this.resetTimeOfRace();
     this.stop();
+    this.disableSelectCategory();
+  }
+
+  disableSelectCategory() {
+    if (this.selectCategory.displayCategoryGrup) {
+      this.selectCategory.togleAtribute();
+    }
   }
 
   displayFormContent(boolean) {

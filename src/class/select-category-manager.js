@@ -59,8 +59,4 @@ export default class SelectCategoryManger {
       this.displayCategoryGrup,
     );
   }
-
-  get returnCategorySelected() {
-    return this.inputOfCategory.value;
-  }
 }

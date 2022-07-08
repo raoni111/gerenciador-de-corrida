@@ -16,6 +16,7 @@ export default class HTMLManager {
   }
 
   setTitleOfPage(race, before) {
-    document.title = `${before} ${race.name}`;
+    const titlebar = document.getElementById('title-bar');
+    titlebar.textContent = `${before} ${race.name}`;
   }
 }

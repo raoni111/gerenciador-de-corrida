@@ -1,4 +1,6 @@
 export default class SearchByCategory {
+  categoryIndex;
+
   constructor(selectManager, tablePodioManager, ElectronAPIManager, indexRace) {
     this.selectManager = selectManager;
     this.tablePodioManager = tablePodioManager;
@@ -9,11 +11,18 @@ export default class SearchByCategory {
   listenerSelecManager() {
     this.selectManager.categoryGrup.addEventListener('click', (e) => {
       if (e.target.className === 'category-li-element') {
-        const categoryIndex = e.target.id;
-        this.ElectronAPIManager.searchByCategory(categoryIndex, this.indexRace).then((podio) => {
+        this.categoryIndex = e.target.id;
+        this.ElectronAPIManager.searchByCategory(
+          this.categoryIndex,
+          this.indexRace,
+        ).then((podio) => {
           this.tablePodioManager.displayParticipant(podio);
         });
       }
     });
+  }
+
+  get getCategoryIndex() {
+    return this.categoryIndex;
   }
 }

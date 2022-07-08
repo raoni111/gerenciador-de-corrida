@@ -9,9 +9,22 @@ class GeneretePdf {
 
   title = '';
 
-  generetePdf(indexRace) {
+  category = '';
+
+  constructor(LocalStorageManager) {
+    this.LocalStorageManager = LocalStorageManager;
+  }
+
+  generetePdf(podioInfomation) {
+    const { indexRace, categoryIndex } = podioInfomation;
     const doc = new jsPDF();
-    this.coletDates(indexRace);
+    this.coletDates(indexRace, categoryIndex);
+    doc.setFontSize(11);
+
+    if (categoryIndex) {
+      doc.text(`${this.title} | CATEGORIA: ${this.category}`, 15, 10);
+    }
+
     doc.text(this.title, 15, 10);
     doc.autoTable([
       'Posição',
@@ -26,9 +39,9 @@ class GeneretePdf {
     doc.save(path.join(__dirname, '..', 'pdfs', 'podio.pdf'));
   }
 
-  coletDates(indexRace) {
-    this.title = races[indexRace].name;
-    races[indexRace].podio.forEach((element, index) => {
+  async coletDates(indexRace, categoryIndex) {
+    const podio = this.searchByCategory(categoryIndex, indexRace);
+    podio.forEach((element, index) => {
       this.row.push([
         `${index + 1}°`,
         `${element.subscription}`,
@@ -40,6 +53,26 @@ class GeneretePdf {
         `${element.time}`,
       ]);
     });
+  }
+
+  searchByCategory(categoryIndex, indexRace) {
+    const { podio } = races[indexRace];
+
+    this.title = races[indexRace].name;
+
+    if (!categoryIndex) return podio;
+
+    this.category = races[indexRace].categories[categoryIndex].name;
+
+    const especificParticipants = [];
+    podio.filter((participant) => {
+      if (participant.category === this.category) {
+        especificParticipants.push(participant);
+      }
+      return participant;
+    });
+
+    return especificParticipants;
   }
 }
 

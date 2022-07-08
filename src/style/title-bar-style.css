@@ -1,0 +1,57 @@
+.topBar-container > .topBar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #203552;
+  box-shadow: 0px 1px 5px #132031;
+  -webkit-app-region: drag;
+}
+.topBar > .icon-container img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  width: 20px;
+}
+.topBar > .title-container h1 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: white;
+}
+.topBar > .window-controler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.topBar > .window-controler .window-controler-button {
+  width: 50px;
+  height: 30px;
+  background-color: rgba(255, 0, 0, 0);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 35%;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  -webkit-app-region: none;
+}
+.topBar > .window-controler .window-controler-button:hover {
+  background-color: #131F30;
+}
+.topBar > .window-controler .window-controler-button:nth-child(1) {
+  background-image: url("./img/minus.png");
+}
+.topBar > .window-controler .window-controler-button:nth-child(2) {
+  background-image: url("./img/maximize.png");
+}
+.topBar > .window-controler .window-controler-button.maximized:nth-child(2)  {
+  background-image: url("./img/restore.png");
+}
+.topBar > .window-controler .window-controler-button:nth-child(3) {
+  background-image: url("./img/close-wite.png");
+  background-size: 25%;
+}
+.topBar > .window-controler .window-controler-button:nth-child(3):hover {
+  background-color: #E24543;
+}

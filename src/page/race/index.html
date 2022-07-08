@@ -5,12 +5,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style/title-bar-style.css">
   <link href="../../style/global-style.css" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css">
   <title></title>
 </head>
+
 <body>
-  <div class="create-new-category-container" display="false">
+  <div class="topBar-container">
+    <div class="topBar">
+      <div class="icon-container">
+        <img src="./../../icon/icon.png" alt="">
+      </div>
+      <div class="title-container">
+        <h1 id="title-bar"></h1>
+      </div>
+      <div class="window-controler">
+        <button class="window-controler-button" id="minimize" title="minimizar">
+        </button>
+        <button  class="window-controler-button" id="maximize" title="maximizar">
+        </button>
+        <button  class="window-controler-button" id="close-window" title="fechar">
+        </button>
+      </div>
+    </div>
+  </div>
     <main class="main-content">
       <div class="back-button-container">
         <div class="blu-button-container">
@@ -46,7 +65,8 @@
       </header>
       <section class="races-section">
         <div class="nav-container" id="nav-container" display="false">
-          <form action="POST" class="form-add-at-the-podio-container" id="form-add-at-the-podio-container"  display="false">
+          <form action="POST" class="form-add-at-the-podio-container" id="form-add-at-the-podio-container"
+            display="false">
             <div class="input-add-at-the-podio-conteiner">
               <div class="input-content">
                 <label for="inscricao">Inscrição:</label><br>

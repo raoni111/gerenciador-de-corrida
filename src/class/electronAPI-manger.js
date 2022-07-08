@@ -112,8 +112,11 @@ export default class ElectronAPIManager {
     return letTime;
   }
 
-  static async generatePDF(index) {
-    window.electronAPI.generatePDF(index);
+  static async generatePDF(indexRace, categoryIndex) {
+    window.electronAPI.generatePDF({
+      indexRace,
+      categoryIndex,
+    });
   }
 
   static async setStateOfRace(indexRace, state) {

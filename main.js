@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /* eslint-disable import/no-unresolved */
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 const {
@@ -8,7 +9,15 @@ const DisplayPDF = require('./src/class/display-pdf');
 const GeneretePdf = require('./src/class/genarete-pdf');
 const LocalStorageManager = require('./src/class/local-storage-manager');
 
+require('update-electron-app')({
+  repo: 'https://github.com/raoni111/gerenciador-de-corrida',
+  updateInterval: '1 hour',
+});
+
 class MyApllication {
+  /**
+   * @type { Electron.BrowserWindowConstructorOptions electron }
+   */
   mainWindow;
 
   createWindow() {
@@ -20,11 +29,20 @@ class MyApllication {
         preload: path.join(__dirname, 'preload.js'),
         nodeIntegration: true,
         webSecurity: false,
+        devTools: true,
       },
       autoHideMenuBar: false,
+      titleBarStyle: 'hidden',
+      icon: path.join(__dirname, '/src/icon/icon.png'),
     });
-
     this.mainWindow.loadFile(`${__dirname}/src/page/create-new-race/index.html`);
+
+    this.mainWindow.on('maximize', () => {
+      this.mainWindow.webContents.send('maximized');
+    });
+    this.mainWindow.on('unmaximize', () => {
+      this.mainWindow.webContents.send('minimized');
+    });
   }
 }
 
@@ -44,6 +62,24 @@ app.on('window-all-closed', () => {
 });
 
 // ipcMain space
+
+ipcMain.handle('close-window', () => {
+  myApllication.mainWindow.close();
+});
+
+ipcMain.handle('minimize-window', () => {
+  myApllication.mainWindow.minimize();
+});
+
+ipcMain.handle('maxmize-window', () => {
+  if (!myApllication.mainWindow.isMaximized()) {
+    myApllication.mainWindow.maximize();
+    return 'maximized';
+  }
+  myApllication.mainWindow.restore();
+  return 'minimized';
+});
+
 ipcMain.handle('return-races', () => LocalStorageManager.returnRaces);
 
 ipcMain.handle('add-new-race', (event, data) => {
@@ -108,10 +144,10 @@ ipcMain.handle('return-time-of-race', (event, indexRace) => localStorageManager.
 
 ipcMain.handle('reset-time-of-race', (event, indexRace) => localStorageManager.resetTime(indexRace));
 
-ipcMain.handle('generete-pdf', (event, indexRace) => {
+ipcMain.handle('generete-pdf', (event, podioInfomation) => {
   const generatePDF = new GeneretePdf();
   const displayPDF = new DisplayPDF();
-  generatePDF.generetePdf(indexRace);
+  generatePDF.generetePdf(podioInfomation);
   displayPDF.createWindow();
 });
 

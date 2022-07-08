@@ -108,9 +108,19 @@ body {
     border-bottom: #213552 3px solid;
 }
 .races-section .grid-table .grid-table-body {
-    padding-bottom: 3rem;
-    padding-top: 3rem;
-    border-bottom: #213552 3px solid;
+  overflow-y: scroll;
+  height: 500px;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  border-bottom: #213552 3px solid;
+}
+.races-section .grid-table .grid-table-body::-webkit-scrollbar {
+  width: 7px;
+  padding-right: 0.5rem;
+}
+.races-section .grid-table .grid-table-body::-webkit-scrollbar-thumb {
+  background-color: #3C3EC1;
+  border-radius: 20px;
 }
 .races-section .grid-table .grid-table-body .grid-table-row {
     cursor: pointer;
@@ -130,8 +140,6 @@ body {
 .races-section .grid-table .grid-table-body .grid-table-row:hover {
     border-radius: 5px;
     background-color: #213552;
-}
-.races-section .grid-table .grid-table-body .grid-table-row  li {
 }
 .races-section .grid-table .grid-table-body .grid-table-row li .delect-button {
     cursor: pointer;

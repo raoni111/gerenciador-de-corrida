@@ -1,5 +1,6 @@
 /* styles.css */
 body {
+  overflow: hidden;
   background-color: #131F30;
 }
 
@@ -86,7 +87,6 @@ button:nth-child(4)[display="true"] {
 .main-content {
   padding: 5rem 5rem;
 }
-
 .main-content .back-button-container {
   display: flex;
   justify-content: space-between;
@@ -138,7 +138,7 @@ button:nth-child(4)[display="true"] {
 }
 .races-section .nav-container .input-conteiner .grup-of-category-before-input {
   position: absolute;
-  overflow-y: auto;
+  overflow: hidden;
   width: 100%;
   height: 100px;
   margin-top: 0.2rem;
@@ -168,7 +168,7 @@ button:nth-child(4)[display="true"] {
   background-color: #131F30;
 }
 .races-section .nav-container .input-conteiner ul[display="false"] {
-  overflow: hidden;
+  overflow-y: hidden;
   height: 0px;
   background-color: transparent;
 }
@@ -226,11 +226,20 @@ button:nth-child(4)[display="true"] {
 }
 
 .races-section .grid-table .grid-table-body {
+  overflow-y: scroll;
+  height: 360px;
   padding-bottom: 3rem;
   padding-top: 3rem;
   border-bottom: #213552 3px solid;
 }
-
+.races-section .grid-table .grid-table-body::-webkit-scrollbar {
+  width: 7px;
+  padding-right: 0.5rem;
+}
+.races-section .grid-table .grid-table-body::-webkit-scrollbar-thumb {
+  background-color: #3C3EC1;
+  border-radius: 20px;
+}
 .races-section .grid-table .grid-table-body .grid-table-row {
   display: grid;
   align-items: center;

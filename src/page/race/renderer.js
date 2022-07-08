@@ -37,6 +37,13 @@ const tablePodioManger = new TablePodioManger(
   index,
 );
 
+const selectCategoryManager = new SelectCategoryManger(
+  selectGroup,
+  inputOfCategory,
+  ElectronAPIManager,
+  index,
+);
+
 const timer = new Timer(
   tablePodioManger,
   timeContent,
@@ -47,16 +54,10 @@ const timer = new Timer(
   printButton,
   finishButton,
   resetButton,
+  selectCategoryManager,
   searchByCategoryContainer,
   navContainer,
   formContent,
-  ElectronAPIManager,
-  index,
-);
-
-const selectCategoryManager = new SelectCategoryManger(
-  selectGroup,
-  inputOfCategory,
   ElectronAPIManager,
   index,
 );
@@ -87,7 +88,7 @@ buttonBack.addEventListener('click', () => {
 });
 
 printButton.addEventListener('click', () => {
-  ElectronAPIManager.generatePDF(index);
+  ElectronAPIManager.generatePDF(index, searchByCategory.getCategoryIndex);
 });
 
 window.addEventListener('DOMContentLoaded', () => {

@@ -1,13 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
+const WindowControler = require('./src/class/window-controler');
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector);
-    if (element) element.innerText = text;
-  };
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type]);
-  }
   contextBridge.exposeInMainWorld('electronAPI', {
     addNewRace: (data) => ipcRenderer.invoke('add-new-race', data),
     returnRaces: () => ipcRenderer.invoke('return-races'),
@@ -24,9 +18,29 @@ window.addEventListener('DOMContentLoaded', async () => {
     saveTimeOfRace: (indexInformation) => ipcRenderer.invoke('save-time-of-race', indexInformation),
     returnTimeOfRace: (indexRace) => ipcRenderer.invoke('return-time-of-race', indexRace),
     resetTimeOfRace: (indexRace) => ipcRenderer.invoke('reset-time-of-race', indexRace),
-    generatePDF: (indexRace) => ipcRenderer.invoke('generete-pdf', indexRace),
+    generatePDF: (podioInfomation) => ipcRenderer.invoke('generete-pdf', podioInfomation),
     setStateOfRace: (stateInformation) => ipcRenderer.invoke('set-new-state-of-race', stateInformation),
     returnStateOfRace: (indexRace) => ipcRenderer.invoke('return-state-of-race', indexRace),
     searchByCategory: (searchInformation) => ipcRenderer.invoke('search-by-category', searchInformation),
+  });
+
+  const minimizeButton = document.querySelector('#minimize');
+  const maxmizeButton = document.querySelector('#maximize');
+  const closeWindowButton = document.querySelector('#close-window');
+
+  const windowControler = new WindowControler(
+    minimizeButton,
+    maxmizeButton,
+    closeWindowButton,
+  );
+  windowControler.listenerButton();
+
+  ipcRenderer.on('maximized', () => {
+    console.log('teste');
+    windowControler.maximizedFunction();
+  });
+
+  ipcRenderer.on('minimized', () => {
+    windowControler.manimizedFunction();
   });
 });
