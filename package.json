@@ -1,13 +1,14 @@
 {
-    "name": "electron-quick-start",
+    "name": "gerenciador_de_corrida",
     "version": "1.0.0",
     "type": "commonjs",
-    "description": "A minimal Electron application",
+    "description": "apenas um gerenciador de corrida",
     "main": "main.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "build": "npx electron-packager . --platform=win32 --arch=x64 gerenciador_de_corrida"
     },
-    "repository": "https://github.com/electron/electron-quick-start",
+    "repository": "https://github.com/raoni111/gerenciador-de-corrida",
     "keywords": [
         "Electron",
         "quick",
@@ -16,7 +17,6 @@
         "demo"
     ],
     "author": "Raoni",
-    "license": "CC0-1.0",
     "devDependencies": {
         "electron": "^19.0.4",
         "electron-packager": "^15.5.1",
