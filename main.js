@@ -9,10 +9,57 @@ const DisplayPDF = require('./src/class/display-pdf');
 const GeneretePdf = require('./src/class/genarete-pdf');
 const LocalStorageManager = require('./src/class/local-storage-manager');
 
-require('update-electron-app')({
-  repo: 'https://github.com/raoni111/gerenciador-de-corrida',
-  updateInterval: '1 hour',
-});
+if (handleSquirrelEvent()) {
+  return;
+}
+
+function handleSquirrelEvent() {
+  if (process.argv.length === 1) {
+    return false;
+  }
+
+  const ChildProcess = require('child_process');
+  const path = require('path');
+
+  const appFolder = path.resolve(process.execPath, '..');
+  const rootAtomFolder = path.resolve(appFolder, '..');
+  const updateDotExe = path.resolve(path.join(rootAtomFolder, 'Update.exe'));
+  const exeName = path.basename(process.execPath);
+
+  const spawn = function(command, args) {
+    let spawnedProcess, error;
+
+    try {
+      spawnedProcess = ChildProcess.spawn(command, args, {detached: true});
+    } catch (error) {}
+
+    return spawnedProcess;
+  };
+
+  const spawnUpdate = function(args) {
+    return spawn(updateDotExe, args);
+  };
+
+  const squirrelEvent = process.argv[1];
+  switch (squirrelEvent) {
+    case '--squirrel-install':
+    case '--squirrel-updated':
+      spawnUpdate(['--createShortcut', exeName]);
+
+      setTimeout(app.quit, 1000);
+      return true;
+
+    case '--squirrel-uninstall':
+      spawnUpdate(['--removeShortcut', exeName]);
+
+      setTimeout(app.quit, 1000);
+      return true;
+
+    case '--squirrel-obsolete':
+      app.quit();
+      return true;
+  }
+};
 
 class MyApllication {
   /**
@@ -33,7 +80,8 @@ class MyApllication {
       },
       autoHideMenuBar: false,
       titleBarStyle: 'hidden',
-      icon: path.join(__dirname, '/src/icon/icon.png'),
+      show: false,
+      icon: path.join(__dirname, '/src/icon/icon.ico'),
     });
     this.mainWindow.loadFile(`${__dirname}/src/page/create-new-race/index.html`);
 
@@ -43,6 +91,10 @@ class MyApllication {
     this.mainWindow.on('unmaximize', () => {
       this.mainWindow.webContents.send('minimized');
     });
+
+    this.mainWindow.once('ready-to-show', () => {
+      this.mainWindow.show();
+    })
   }
 }
 

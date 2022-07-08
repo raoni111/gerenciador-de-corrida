@@ -15,9 +15,13 @@ class DisplayPDF {
         webSecurity: false,
       },
       autoHideMenuBar: true,
+      show: false,
     });
 
     this.mainWindow.loadFile(path.join(__dirname, '..', 'pdfs', 'podio.pdf'));
+    this.mainWindow.once('ready-to-show', () => {
+      this.mainWindow.show();
+    });
   }
 }
 

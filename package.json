@@ -1,12 +1,31 @@
 {
     "name": "gerenciador_de_corrida",
+    "productName": "Gerenciador de corridas",
     "version": "1.0.0",
     "type": "commonjs",
     "description": "apenas um gerenciador de corrida",
     "main": "main.js",
     "scripts": {
-        "start": "electron .",
-        "build": "npx electron-packager . --platform=win32 --arch=x64 gerenciador_de_corrida"
+      "start": "electron .",
+      "build": "electron-builder"
+    },
+    "build": {
+      "appId": "gerenciador-de-tarefas",
+        "win": {
+            "target": [
+                "nsis"
+            ],
+            "icon": "src/icon/icon.ico"
+        },
+        "asar": false,
+        "nsis": {
+            "oneClick": false,
+            "installerIcon": "src/icon/icon.ico",
+            "uninstallerIcon": "src/icon/icon.ico",
+            "license": "./license.md",
+            "uninstallDisplayName": "Uninstall gerenciador de corridas",
+            "allowToChangeInstallationDirectory": true
+        }
     },
     "repository": "https://github.com/raoni111/gerenciador-de-corrida",
     "keywords": [
@@ -19,7 +38,7 @@
     "author": "Raoni",
     "devDependencies": {
         "electron": "^19.0.4",
-        "electron-packager": "^15.5.1",
+        "electron-builder": "^23.1.0",
         "eslint": "^8.17.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-plugin-import": "^2.26.0"
@@ -27,6 +46,6 @@
     "dependencies": {
         "jspdf": "^2.5.1",
         "jspdf-autotable": "^3.5.25",
-        "update-electron-app": "^2.0.1"
+        "yarn": "^1.22.19"
     }
 }
