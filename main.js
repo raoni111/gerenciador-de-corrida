@@ -79,7 +79,7 @@ class MyApllication {
         devTools: true,
       },
       autoHideMenuBar: false,
-      titleBarStyle: 'hidden',
+      titleBarStyle: 'default',
       show: false,
       icon: path.join(__dirname, '/src/icon/icon.ico'),
     });

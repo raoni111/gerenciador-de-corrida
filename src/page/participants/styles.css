@@ -83,19 +83,29 @@ body {
   justify-content: space-between;
   align-items: auto;
   width: 550px;
-  min-height: 300px;
+  height: 300px;
   border-radius: 10px;
   padding: 3rem 5rem;
   color: rgb(255, 255, 255);
   background-color: #203552;
 }
 .create-new-category-container .create-new-category-content .all-categories-created {
+  overflow-y: scroll;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   padding-right: 1rem;
   margin-right: 4rem;
   border-right: 2px solid #131f302f;
 }
+.create-new-category-container .create-new-category-content .all-categories-created::-webkit-scrollbar {
+  width: 5px;
+  padding-right: 0.5rem;
+}
+.create-new-category-container .create-new-category-content .all-categories-created::-webkit-scrollbar-thumb {
+  background-color: #3C3EC1;
+  border-radius: 20px;
+}
+
 .create-new-category-container .create-new-category-content .all-categories-created .header-of-all-category {
   width: 100%;
   margin-bottom: 2rem;
@@ -194,6 +204,8 @@ body {
 .form-create-new-race-conteiner .form-create-new-race .input-conteiner ul[display="false"] {
   overflow: hidden;
   height: 0px;
+  padding: 0px;
+  margin: 0px;
   background-color: transparent;
 }
 .form-create-new-race-conteiner .form-create-new-race .input-conteiner ul {

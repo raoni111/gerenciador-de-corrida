@@ -139,6 +139,7 @@ button:nth-child(4)[display="true"] {
 .races-section .nav-container .input-conteiner .grup-of-category-before-input {
   position: absolute;
   overflow: hidden;
+  overflow-y: scroll;
   width: 100%;
   height: 100px;
   margin-top: 0.2rem;

@@ -38,7 +38,7 @@ export default class SelectCategoryManger {
   listenerCategory() {
     this.categoryGrup.addEventListener('click', (e) => {
       if (e.target.className === 'category-li-element') {
-        this.inputOfCategory.value = e.target.textContent.replace(/ /g, '');
+        this.inputOfCategory.value = e.target.textContent.trim();
         this.togleAtribute();
       }
     });

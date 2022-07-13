@@ -30,13 +30,13 @@ class LocalStorageManager {
   }
 
   addNewParticipantToPodio(raceIndex, participantSubscription, time) {
-    const participant = this.returnEspecificParticipant(raceIndex, participantSubscription);
+    const participant = this.returnEspecificParticipantBySub(raceIndex, participantSubscription);
 
     if (!participant) return null;
 
-    participant.time = time;
-
     if (this.participantOnPodio(races[raceIndex].podio, participantSubscription)) return null;
+
+    participant.time = time;
 
     races[raceIndex].podio.push(participant);
     this.writeFileRaces(races);
@@ -46,14 +46,14 @@ class LocalStorageManager {
   participantOnPodio(podio, participantSubscription) {
     let letParticipantOnPodio = false;
     podio.forEach((participant) => {
-      if (participant.subscription === participantSubscription) {
+      if (participant.subscription === participantSubscription.trim()) {
         letParticipantOnPodio = true;
       }
     });
     return letParticipantOnPodio;
   }
 
-  returnEspecificParticipant(raceIndex, participantSubscription) {
+  returnEspecificParticipantBySub(raceIndex, participantSubscription) {
     let letParticipant = null;
     races[raceIndex].participants.forEach((participant) => {
       if (participant.subscription === participantSubscription) {

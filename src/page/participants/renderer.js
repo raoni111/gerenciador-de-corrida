@@ -7,6 +7,7 @@ import InputsGrupsManger from '../../class/inputs-grups-manger.js';
 import TableCategoryManager from '../../class/table-category-manger.js';
 import FormCreateCategoryManger from '../../class/form-create-category-manager.js';
 import SelectCategoryManger from '../../class/select-category-manager.js';
+import EditInformationManager from '../../class/edit-information-manger.js';
 
 const href = window.location.search.substring(1);
 const param = new URLSearchParams(href);
@@ -66,6 +67,10 @@ const selectCategoryManager = new SelectCategoryManger(
   ElectronAPIManager,
   index,
 );
+
+const editInformation = new EditInformationManager('grid-table-row', index);
+
+editInformation.eventListener();
 
 inputsGrupsManger.listenButtons();
 formManager.listenForm('race-partipants');

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <link rel="stylesheet" href="../../style/title-bar-style.css">
+  <link href="../../style/global-style.css" rel="stylesheet" />
+  <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="topBar-container">
+    <div class="topBar">
+      <div class="icon-container">
+        <img src="./../../icon/icon.ico" alt="">
+      </div>
+      <div class="title-container">
+        <h1></h1>
+      </div>
+      <div class="window-controler">
+        <button class="window-controler-button" id="minimize" title="minimizar">
+        </button>
+        <button  class="window-controler-button" id="maximize" title="maximizar">
+        </button>
+        <button  class="window-controler-button" id="close-window" title="fechar">
+        </button>
+      </div>
+    </div>
+  </div>
+  <main class="main-content">
+    <div class="back-button-container">
+      <button id="back-button">
+        voltar
+      </button>
+    </div>
+    <form action="" method="POST" class="form-container" id="form-container-id">
+      <div class="form-container-main">
+        <div class="form-content" id="form-content-id"></div>
+        <div class="form-button-submit blu-button-conteiner">
+          <button class="blu-button" type="submit">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </main>
+  <script defer type="module" src="./renderer.js"></script>
+</body>
+
+</html>
