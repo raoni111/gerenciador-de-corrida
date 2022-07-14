@@ -306,6 +306,7 @@ body {
   border-radius: 20px;
 }
 .races-section .grid-table .grid-table-body .grid-table-row {
+    cursor: pointer;
     display: grid;
     align-items: center;
     justify-content: center;

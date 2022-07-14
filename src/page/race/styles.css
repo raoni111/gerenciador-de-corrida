@@ -171,6 +171,8 @@ button:nth-child(4)[display="true"] {
 .races-section .nav-container .input-conteiner ul[display="false"] {
   overflow-y: hidden;
   height: 0px;
+  padding: 0px;
+  margin: 0px;
   background-color: transparent;
 }
 .races-section .form-add-at-the-podio-container {

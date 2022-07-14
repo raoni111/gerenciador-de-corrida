@@ -144,4 +144,16 @@ export default class ElectronAPIManager {
     });
     return letEspecificParticipants;
   }
+
+  static async editParticipant(raceIndex, participantIndex, participant) {
+    let boolen = false;
+    await window.electronAPI.editParticipant({
+      raceIndex,
+      participantIndex,
+      participant,
+    }).then((boolean) => {
+      boolen = boolean;
+    });
+    return boolen;
+  }
 }

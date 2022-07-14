@@ -41,7 +41,7 @@ body {
 .main-content .back-button-container button { 
   cursor: pointer;
   padding: 1rem;
-  margin-top: 1rem;
+  margin: 1rem;
   border-radius: 5px;
   text-decoration: none;
   color: #FFF;
@@ -52,9 +52,10 @@ body {
 .main-content .form-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   width: 100%;
   height: 100%;
+  margin-top: 5rem;
   color: white
 }
 .main-content .form-container .form-container-main .form-content {

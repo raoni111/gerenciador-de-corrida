@@ -22,6 +22,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     setStateOfRace: (stateInformation) => ipcRenderer.invoke('set-new-state-of-race', stateInformation),
     returnStateOfRace: (indexRace) => ipcRenderer.invoke('return-state-of-race', indexRace),
     searchByCategory: (searchInformation) => ipcRenderer.invoke('search-by-category', searchInformation),
+    editParticipant: (participantInfo) => ipcRenderer.invoke('edit-participant', participantInfo),
   });
 
   const minimizeButton = document.querySelector('#minimize');

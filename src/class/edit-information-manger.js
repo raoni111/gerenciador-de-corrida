@@ -9,6 +9,7 @@ export default class EditInformationManager {
       const { target } = e;
       const { parentElement } = target;
       const indexParticipant = target.id.slice(-1);
+
       if (target.className === this.hundle && target.className !== 'delect-button') {
         this.redirectUser(indexParticipant);
       } else if (parentElement.className === this.hundle && target.className !== 'delect-button') {

@@ -8,10 +8,12 @@ const param = new URLSearchParams(href);
 const index = Number(param.get('indexRace'));
 const indexParticipant = Number(param.get('indexParticipant'));
 
+const form = document.getElementById('form-container-id');
 const formEditInfomation = document.getElementById('form-content-id');
 
 window.addEventListener('DOMContentLoaded', async () => {
   const formEditInfomationManager = new FormEditInfomationManager(
+    form,
     formEditInfomation,
     ElectronAPIManager,
     index,

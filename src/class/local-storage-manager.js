@@ -40,6 +40,7 @@ class LocalStorageManager {
 
     races[raceIndex].podio.push(participant);
     this.writeFileRaces(races);
+
     return races[raceIndex].podio;
   }
 
@@ -125,11 +126,22 @@ class LocalStorageManager {
 
   setStatusOfRace(indexOfRace, state) {
     races[indexOfRace].stateOfRace = state;
+
     if (state === 'reseted') {
       races[indexOfRace].time = [];
       races[indexOfRace].podio = [];
     }
+
     this.writeFileRaces(races);
+  }
+
+  editParticipant(participantInfo) {
+    races[participantInfo.raceIndex]
+      .participants[participantInfo.participantIndex] = participantInfo.participant;
+
+    this.writeFileRaces(races);
+
+    return true;
   }
 
   static returnStateOfRace(indexOfRace) {

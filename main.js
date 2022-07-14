@@ -220,3 +220,9 @@ ipcMain.handle('search-by-category', (event, searchInfomation) => {
     .searchByCategory(searchInfomation.categoryIndex, searchInfomation.indexRace);
   return especificParticipants;
 });
+
+ipcMain.handle('edit-participant', (event, participantInfo) => {
+  const _boolen = localStorageManager.editParticipant(participantInfo);
+
+  return _boolen;
+})
