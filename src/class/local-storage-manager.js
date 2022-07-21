@@ -136,8 +136,17 @@ class LocalStorageManager {
   }
 
   editParticipant(participantInfo) {
+    const participantName = races[participantInfo.raceIndex]
+      .participants[participantInfo.participantIndex].name;
+
     races[participantInfo.raceIndex]
       .participants[participantInfo.participantIndex] = participantInfo.participant;
+
+    races[participantInfo.raceIndex].podio.forEach((value, index) => {
+      if (value.name === participantName) {
+        races[participantInfo.raceIndex].podio[index] = participantInfo.participant;
+      }
+    });
 
     this.writeFileRaces(races);
 

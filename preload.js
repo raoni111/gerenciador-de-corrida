@@ -36,6 +36,14 @@ window.addEventListener('DOMContentLoaded', async () => {
   );
   windowControler.listenerButton();
 
+  ipcRenderer.invoke('is-maximized').then((boolean) => {
+    if (boolean) {
+      windowControler.maximizedFunction();
+      return;
+    }
+    windowControler.manimizedFunction();
+  });
+
   ipcRenderer.on('maximized', () => {
     windowControler.maximizedFunction();
   });

@@ -6,7 +6,7 @@ export default class FormEditInfomationManager {
 
   participant;
 
-  constructor(form, formContent, ElectronAPIManger, indexRace, indexParticipant = null) {
+  constructor(form, formContent, ElectronAPIManger, indexRace, indexParticipant = undefined) {
     this.form = form;
     this.formContent = formContent;
     this.ElectronAPIManger = ElectronAPIManger;

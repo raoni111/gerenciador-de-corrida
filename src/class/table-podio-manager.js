@@ -14,6 +14,7 @@ export default class TablePodioManger {
       const ul = createUlelementPartipantPodio(participant, index);
       this.tablePodioManger.innerHTML += ul;
     });
+    this.tablePodioManger.setAttribute('loading', 'false');
   }
 
   initTablePodioManager(indexRace) {

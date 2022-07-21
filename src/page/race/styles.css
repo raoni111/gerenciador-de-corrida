@@ -27,6 +27,21 @@ body {
   justify-content: center;
   align-items: center;
 }
+.time-content span {
+  display: block;
+}
+
+.time-content span img {
+  width: 50px;
+}
+
+.time-content[loading="true"] span img {
+  animation: loading .7s infinite ;
+}
+
+.time-content[loading="false"] span {
+  display: none;
+}
 
 .timer-container .button-time-container {
   display: flex;
@@ -235,6 +250,19 @@ button:nth-child(4)[display="true"] {
   padding-top: 3rem;
   border-bottom: #213552 3px solid;
 }
+.races-section .grid-table .grid-table-body span img {
+  width: 50px;
+}
+.races-section .grid-table .grid-table-body[loading="true"] span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.races-section .grid-table .grid-table-body[loading="true"] span img {
+  animation: loading .7s infinite;
+}
 .races-section .grid-table .grid-table-body::-webkit-scrollbar {
   width: 7px;
   padding-right: 0.5rem;
@@ -244,6 +272,7 @@ button:nth-child(4)[display="true"] {
   border-radius: 20px;
 }
 .races-section .grid-table .grid-table-body .grid-table-row {
+  cursor: pointer;
   display: grid;
   align-items: center;
   justify-content: center;
@@ -283,4 +312,12 @@ button:nth-child(4)[display="true"] {
   font-size: 1.5rem;
   font-family: Arial, Helvetica, sans-serif;
 
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
 }

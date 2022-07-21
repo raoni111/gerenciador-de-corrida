@@ -292,11 +292,21 @@ body {
 }
 .races-section .grid-table .grid-table-body {
   overflow-y: scroll;
-  height: 450px;
+  height: 0px;
   padding-bottom: 3rem;
   padding-top: 3rem;
   border-bottom: #213552 3px solid;
+  transition: all 0.5s ease;
 }
+.races-section .grid-table .grid-table-body[display="false"] {
+  opacity: 0;
+}
+.races-section .grid-table .grid-table-body[display="true"] {
+  height: 450px;
+  opacity: 1;
+}
+
+
 .races-section .grid-table .grid-table-body::-webkit-scrollbar {
   width: 7px;
   padding-right: 0.5rem;

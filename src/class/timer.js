@@ -250,6 +250,7 @@ export default class Timer {
 
   displayTime() {
     this.timeContent.textContent = this.time;
+    this.timeContent.setAttribute('loading', 'false');
   }
 
   get time() {

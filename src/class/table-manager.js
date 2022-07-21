@@ -24,6 +24,7 @@ export default class TableManager {
       const ul = createUlelementParticipant(participant, index);
       this.tableOfRace.innerHTML += ul;
     });
+    this.tableOfRace.setAttribute('display', 'true');
   }
 
   lestenerDelectButton(page) {

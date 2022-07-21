@@ -18,7 +18,7 @@
         <img src="./../../icon/icon.ico" alt="">
       </div>
       <div class="title-container">
-        <h1 id="title-bar"></h1>
+        <h1 id="title-bar" display="false"></h1>
       </div>
       <div class="window-controler">
         <button class="window-controler-button" id="minimize" title="minimizar">
@@ -38,7 +38,11 @@
           </button>
         </div>
         <div class="timer-container">
-          <div class="time-content"></div>
+          <div class="time-content" loading="true">
+            <span class="loading-content">
+              <img src="./imgs/spinner.png" alt="https://www.flaticon.com/free-icons/loading">
+            </span>
+          </div>
           <div class="timer-buttons">
             <div class="button-time-container blu-button-container">
               <button class="button-init-race blu-button" id="button-init-race" display="true">Começar corrida</button>
@@ -97,7 +101,10 @@
             <li>Sexo</li>
             <li>Tempo</li>
           </ul>
-          <div class="grid-table-body" id="grid-table-body">
+          <div class="grid-table-body" id="grid-table-body" loading="true">
+            <span class="loading-content">
+              <img src="./imgs/spinner.png" alt="https://www.flaticon.com/free-icons/loading">
+            </span>
           </div>
         </div>
       </section>

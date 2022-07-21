@@ -19,6 +19,14 @@
   font-size: 1.5rem;
   font-weight: 300;
   color: white;
+  transition: opacity 0.2s ease;
+}
+
+.topBar > .title-container h1[display="false"] {
+  opacity: 0;
+}
+.topBar > .title-container h1[display="true"] {
+  opacity: 1;
 }
 .topBar > .window-controler {
   display: flex;
@@ -33,7 +41,6 @@
   background-repeat: no-repeat;
   background-size: 35%;
   border: none;
-  transition: all 0.2s ease-in-out;
   -webkit-app-region: none;
 }
 .topBar > .window-controler .window-controler-button:hover {

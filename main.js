@@ -5,61 +5,10 @@ const {
   app, BrowserWindow, ipcMain,
 } = require('electron');
 const path = require('path');
+const handleSquirrelEvent = require('./handleSquirrelEvent');
 const DisplayPDF = require('./src/class/display-pdf');
 const GeneretePdf = require('./src/class/genarete-pdf');
 const LocalStorageManager = require('./src/class/local-storage-manager');
-
-if (handleSquirrelEvent()) {
-  return;
-}
-
-function handleSquirrelEvent() {
-  if (process.argv.length === 1) {
-    return false;
-  }
-
-  const ChildProcess = require('child_process');
-  const path = require('path');
-
-  const appFolder = path.resolve(process.execPath, '..');
-  const rootAtomFolder = path.resolve(appFolder, '..');
-  const updateDotExe = path.resolve(path.join(rootAtomFolder, 'Update.exe'));
-  const exeName = path.basename(process.execPath);
-
-  const spawn = function(command, args) {
-    let spawnedProcess, error;
-
-    try {
-      spawnedProcess = ChildProcess.spawn(command, args, {detached: true});
-    } catch (error) {}
-
-    return spawnedProcess;
-  };
-
-  const spawnUpdate = function(args) {
-    return spawn(updateDotExe, args);
-  };
-
-  const squirrelEvent = process.argv[1];
-  switch (squirrelEvent) {
-    case '--squirrel-install':
-    case '--squirrel-updated':
-      spawnUpdate(['--createShortcut', exeName]);
-
-      setTimeout(app.quit, 1000);
-      return true;
-
-    case '--squirrel-uninstall':
-      spawnUpdate(['--removeShortcut', exeName]);
-
-      setTimeout(app.quit, 1000);
-      return true;
-
-    case '--squirrel-obsolete':
-      app.quit();
-      return true;
-  }
-};
 
 class MyApllication {
   /**
@@ -68,6 +17,9 @@ class MyApllication {
   mainWindow;
 
   createWindow() {
+    if (handleSquirrelEvent()) {
+      return;
+    }
     this.mainWindow = new BrowserWindow({
       minWidth: 1200,
       minHeight: 700,
@@ -79,9 +31,10 @@ class MyApllication {
         devTools: true,
       },
       autoHideMenuBar: false,
-      titleBarStyle: 'default',
+      titleBarStyle: 'hidden',
       show: false,
       icon: path.join(__dirname, '/src/icon/icon.ico'),
+      backgroundColor: '#131F30',
     });
     this.mainWindow.loadFile(`${__dirname}/src/page/create-new-race/index.html`);
 
@@ -94,7 +47,7 @@ class MyApllication {
 
     this.mainWindow.once('ready-to-show', () => {
       this.mainWindow.show();
-    })
+    });
   }
 }
 
@@ -114,6 +67,8 @@ app.on('window-all-closed', () => {
 });
 
 // ipcMain space
+
+ipcMain.handle('is-maximized', () => myApllication.mainWindow.isMaximized());
 
 ipcMain.handle('close-window', () => {
   myApllication.mainWindow.close();
@@ -222,7 +177,7 @@ ipcMain.handle('search-by-category', (event, searchInfomation) => {
 });
 
 ipcMain.handle('edit-participant', (event, participantInfo) => {
-  const _boolen = localStorageManager.editParticipant(participantInfo);
+  const boolen = localStorageManager.editParticipant(participantInfo);
 
-  return _boolen;
-})
+  return boolen;
+});
