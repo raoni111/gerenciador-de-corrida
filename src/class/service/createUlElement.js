@@ -1,11 +1,11 @@
 export function createUlelementRace(race, index) {
   const ul = `
-    <ul class="grid-table-row" id="race-index-${index}">
-        <li id="race-index-${index}">${race.name}</li>
-        <li id="race-index-${index}">${race.city}</li>
-        <li id="race-index-${index}">${race.date}</li>
+    <ul class="grid-table-row table-content" id="${index}">
+        <li id="${index}" class="table-content">${race.name}</li>
+        <li id="${index}" class="table-content">${race.city}</li>
+        <li id="${index}" class="table-content">${race.date}</li>
         <li>
-            <button class="delect-button" id="idenx-${index}">Apagar</button>
+            <button class="delect-button" id="${index}">Apagar</button>
         </li>
     </ul>
     `;
@@ -14,15 +14,15 @@ export function createUlelementRace(race, index) {
 
 export function createUlelementParticipant(participant, index) {
   const ul = `
-    <ul class="grid-table-row" id="index-${index}">
-        <li id="index-${index}">${participant.subscription}</li>
-        <li id="index-${index}">${participant.name}</li>
-        <li id="index-${index}">${participant.hometown}</li>
-        <li id="index-${index}">${participant.state}</li>
-        <li id="index-${index}">${participant.category}</li>
-        <li id="index-${index}">${participant.sex}</li>
+    <ul class="grid-table-row" id="${index}">
+        <li id="${index}">${participant.subscription}</li>
+        <li id="${index}">${participant.name}</li>
+        <li id="${index}">${participant.hometown}</li>
+        <li id="${index}">${participant.state}</li>
+        <li id="${index}">${participant.category}</li>
+        <li id="${index}">${participant.sex}</li>
         <li>
-            <button class="delect-button" id="idenx-${index}">Apagar</button>
+            <button class="delect-button" id="${index}">Apagar</button>
         </li>
     </ul>
     `;

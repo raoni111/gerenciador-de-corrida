@@ -8,7 +8,7 @@ export default class EditInformationManager {
     document.addEventListener('click', (e) => {
       const { target } = e;
       const { parentElement } = target;
-      const indexParticipant = target.id.slice(-1);
+      const indexParticipant = target.id;
 
       if (target.className === this.hundle && target.className !== 'delect-button') {
         this.redirectUser(indexParticipant);

@@ -231,6 +231,7 @@ body {
   border-radius: 20px;
 }
 .form-create-new-race-conteiner .form-create-new-race .input-conteiner ul li {
+  cursor: pointer;
   margin-top: 1rem;
   padding: 0.5rem;
   border-radius: 5px;

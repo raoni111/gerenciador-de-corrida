@@ -1,6 +1,7 @@
 /* eslint-disable guard-for-in */
 import ElectronAPIManager from '../../class/electronAPI-manger.js';
 import FormEditInfomationManager from '../../class/form-edit-infomation-manger.js';
+import HTMLManager from '../../class/html-manger.js';
 import SelectCategoryManger from '../../class/select-category-manager.js';
 
 const href = window.location.search.substring(1);
@@ -19,6 +20,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     index,
     indexParticipant,
   );
+  const htmlManager = new HTMLManager(ElectronAPIManager);
 
   await formEditInfomationManager.initFormEditParticipant();
 
@@ -33,6 +35,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   );
 
   selectCategoryManager.initSelectCategory();
+  htmlManager.renderInformation(index);
 });
 
 document.getElementById('back-button').addEventListener('click', () => {

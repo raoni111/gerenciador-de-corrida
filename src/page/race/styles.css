@@ -176,6 +176,7 @@ button:nth-child(4)[display="true"] {
   border-radius: 20px;
 }
 .races-section .nav-container .input-conteiner ul li {
+  cursor: pointer;
   margin-top: 1rem;
   padding: 0.5rem;
   border-radius: 5px;
@@ -291,22 +292,6 @@ button:nth-child(4)[display="true"] {
   border-radius: 5px;
   background-color: #213552;
 }
-
-.races-section .grid-table .grid-table-body .grid-table-row li .delect-button {
-  cursor: pointer;
-  background-color: transparent;
-  padding: 1rem 3rem;
-  color: rgb(255, 255, 255);
-  border-radius: 20px;
-  border: 2px solid #E24543;
-  transition: background 0.1s ease-in-out;
-
-}
-
-.races-section .grid-table .grid-table-body .grid-table-row li .delect-button:hover {
-  background-color: #E24543;
-}
-
 .races-section .add-new-race h3 {
   color: #3C3EC1;
   font-size: 1.5rem;

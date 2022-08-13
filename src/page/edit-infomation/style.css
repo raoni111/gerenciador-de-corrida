@@ -38,6 +38,7 @@ body {
   height: 100vh;
   background-color: transparent;
 }
+
 .main-content .back-button-container button { 
   cursor: pointer;
   padding: 1rem;
@@ -47,6 +48,19 @@ body {
   color: #FFF;
   background-color: #3C3EC1;
   border: none;
+}
+
+.main-content .race-name-main {
+  width: 100%;
+  margin-top: 3rem;
+  padding: 0rem 5rem;
+}
+
+.main-content .race-name-main .race-name-container {
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-bottom: #213552 3px solid;
+  color: white;
 }
 
 .main-content .form-container {
@@ -103,6 +117,7 @@ body {
   border-radius: 20px;
 }
 .main-content .form-container .form-container-main .form-content .input-conteiner ul li {
+  cursor: pointer;
   margin-top: 1rem;
   padding: 0.5rem;
   border-radius: 5px;

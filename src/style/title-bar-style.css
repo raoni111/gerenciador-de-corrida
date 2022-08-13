@@ -49,7 +49,10 @@
 .topBar > .window-controler .window-controler-button:nth-child(1) {
   background-image: url("./img/minus.png");
 }
-.topBar > .window-controler .window-controler-button:nth-child(2) {
+.topBar > .window-controler .window-controler-button:nth-child(2)  {
+  background-image: url("./img/maximize.png");
+}
+.topBar > .window-controler .window-controler-button.minimized:nth-child(2) {
   background-image: url("./img/maximize.png");
 }
 .topBar > .window-controler .window-controler-button.maximized:nth-child(2)  {

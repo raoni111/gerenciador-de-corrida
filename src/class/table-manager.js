@@ -30,7 +30,7 @@ export default class TableManager {
   lestenerDelectButton(page) {
     this.tableOfRace.addEventListener('click', (e) => {
       const { target } = e;
-      const index = target.id.slice(-1);
+      const index = target.id;
 
       if (target.className === 'delect-button') {
         if (page === 'race') {
@@ -40,7 +40,7 @@ export default class TableManager {
         this.deleteParticipant(this.index, index);
       }
 
-      if (target.id.slice(0, 10) === 'race-index') {
+      if (target.classList.contains('table-content')) {
         window.location = `../participants/index.html?index=${index}`;
       }
     });
