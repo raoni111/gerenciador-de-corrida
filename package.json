@@ -37,7 +37,7 @@
     ],
     "author": "Raoni",
     "devDependencies": {
-        "electron": "^19.0.4",
+        "electron": "^20.1.0",
         "electron-builder": "^23.1.0",
         "eslint": "^8.17.0",
         "eslint-config-airbnb-base": "^15.0.0",
