@@ -95,7 +95,7 @@ class LocalStorageManager {
   }
 
   delectRace(index) {
-    delete races[index];
+    races.splice(index, 1);
 
     this.writeFileRaces(races);
 
@@ -103,7 +103,7 @@ class LocalStorageManager {
   }
 
   deleteCategory(indexOfRace, indexOfCategory) {
-    delete races[indexOfRace].categories[indexOfCategory];
+    races[indexOfRace].categories.splice(indexOfCategory, 1);
 
     this.writeFileRaces(races);
 
@@ -113,7 +113,7 @@ class LocalStorageManager {
   deleteParticipant(indexInfomation) {
     const { indexOfPage, index } = indexInfomation;
 
-    delete races[indexOfPage].participants.splice(index, 1);
+    races[indexOfPage].participants.splice(index, 1);
 
     this.writeFileRaces(races);
 

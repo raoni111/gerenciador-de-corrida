@@ -31,7 +31,7 @@ class MyApllication {
         devTools: true,
       },
       autoHideMenuBar: false,
-      titleBarStyle: 'default',
+      titleBarStyle: 'hidden',
       show: false,
       icon: path.join(__dirname, '/src/icon/icon.ico'),
       backgroundColor: '#131F30',
